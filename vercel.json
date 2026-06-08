@@ -3,6 +3,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/0-index" },
+    { "source": "/business", "destination": "/1-business" },
+    { "source": "/career", "destination": "/1-career" },
     { "source": "/about", "destination": "/1-about" },
     { "source": "/blueprint", "destination": "/1-blueprint" },
     { "source": "/contact", "destination": "/1-contact" },
