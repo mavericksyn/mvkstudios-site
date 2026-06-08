@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — MVK Studios | Melbourne, AU</title>
+  <meta name="description" content="Get in touch with MVK Studios. Book a free strategy call, ask about our plans, or just say hello. Melbourne-based team, fast response." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mvkstudios.com.au/contact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact MVK Studios" />
+  <meta property="og:description" content="Book a free strategy call or ask us anything. We're quick to respond." />
+  <meta property="og:url" content="https://mvkstudios.com.au/contact" />
+  <meta property="og:image" content="https://mvkstudios.com.au/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1E0FC8; --blue-mid: #2a1fd4; --orange: #EE4423;
+      --charcoal: #1A1A1A; --charcoal2: #242424; --charcoal3: #2e2e2e;
+      --seashell: #EBEBEB; --white: #FFFFFF; --grey-mid: #9A9A9A;
+      --grey-line: rgba(235,235,235,0.1);
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --nav-h: 88px;
+      --section-pad: clamp(60px, 8vw, 120px);
+      --container: min(1240px, 100% - 2 * clamp(20px, 5vw, 80px));
+      --radius: 4px; --radius-lg: 12px;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--charcoal); color: var(--seashell); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .container { width: var(--container); margin-inline: auto; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: var(--radius); transition: all 0.25s var(--ease-out); white-space: nowrap; }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: var(--orange); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(238,68,35,0.35); }
+    .btn-outline { background: transparent; color: var(--seashell); border: 1.5px solid rgba(235,235,235,0.4); }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .tag { display: inline-block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); padding: 4px 10px; border: 1px solid var(--orange); border-radius: 2px; margin-bottom: 16px; }
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.01em; }
+    .section-title { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: var(--seashell); text-transform: uppercase; }
+    .divider { width: 48px; height: 3px; background: var(--orange); margin: 16px 0 24px; }
+    .logo-mark { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .logo-mark svg { width: 38px; height: 38px; flex-shrink: 0; }
+    .logo-mark .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-mark .logo-mvk { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; letter-spacing: 0.02em; color: var(--seashell); text-transform: lowercase; }
+    .logo-mark .logo-studios { font-family: var(--font-body); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey-mid); margin-top: 1px; }
+
+    
+    /* NAV */
+    .nav { position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:100; background:rgba(26,26,26,0.95); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--grey-line); }
+    .nav-inner { width:var(--container); margin-inline:auto; height:100%; display:flex; align-items:center; position:relative; }
+    .logo-mark { display:flex; align-items:center; flex-shrink:0; }
+    /* Links centred absolutely; stretch fills nav height so hover bridge works */
+    .nav-links { list-style:none; display:flex; gap:0; align-items:stretch; position:absolute; left:50%; transform:translateX(-50%); height:100%; margin:0; padding:0; }
+    /* Each li fills full height */
+    .nav-links > li { display:flex; align-items:center; }
+    /* Anchor centres text inside the tall li */
+    .nav-link { display:flex; align-items:center; font-family:var(--font-display); font-size:1.05rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(235,235,235,0.72); padding:0 16px; height:100%; border-radius:0; transition:color 0.15s,background 0.15s; white-space:nowrap; }
+    .nav-link:hover { color:var(--white); background:rgba(235,235,235,0.06); }
+    /* Mega menu */
+    .has-mega { position:relative; }
+    .mega-menu { position:fixed; top:var(--nav-h); left:0; right:0; background:rgba(22,22,22,0.98); backdrop-filter:blur(20px); border-top:1px solid var(--grey-line); border-bottom:1px solid var(--grey-line); padding:36px 0 40px; opacity:0; pointer-events:none; transform:translateY(-6px); transition:opacity 0.22s ease,transform 0.22s ease; z-index:99; }
+    .has-mega:hover .mega-menu, .has-mega:focus-within .mega-menu { opacity:1; pointer-events:auto; transform:translateY(0); }
+    /* Panel is container-width, 4 cols divided by lines */
+    .mega-panel { width:var(--container); margin-inline:auto; display:grid; grid-template-columns:repeat(4,1fr); }
+    .mega-col { padding:0 32px; border-right:1px solid var(--grey-line); }
+    .mega-col:first-child { padding-left:0; }
+    .mega-col:last-child  { padding-right:0; border-right:none; }
+    /* Column header = clickable link */
+    .mega-col-head { display:flex; align-items:center; gap:10px; margin-bottom:18px; padding-bottom:14px; text-decoration:none; border-bottom:2px solid; transition:opacity 0.15s; }
+    .mega-col-head:hover { opacity:0.85; }
+    .mega-col[data-pillar="finance"]   .mega-col-head { border-bottom-color:#6ee7b7; }
+    .mega-col[data-pillar="ops"]       .mega-col-head { border-bottom-color:#fbbf24; }
+    .mega-col[data-pillar="tech"]      .mega-col-head { border-bottom-color:#60a5fa; }
+    .mega-col[data-pillar="marketing"] .mega-col-head { border-bottom-color:#f87171; }
+    .mega-col-icon { width:30px; height:30px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:0.9rem; flex-shrink:0; }
+    .mega-col[data-pillar="finance"]   .mega-col-icon { background:rgba(110,231,183,0.12); color:#6ee7b7; }
+    .mega-col[data-pillar="ops"]       .mega-col-icon { background:rgba(251,191,36,0.12);  color:#fbbf24; }
+    .mega-col[data-pillar="tech"]      .mega-col-icon { background:rgba(96,165,250,0.12);  color:#60a5fa; }
+    .mega-col[data-pillar="marketing"] .mega-col-icon { background:rgba(248,113,113,0.12); color:#f87171; }
+    .mega-col-name { font-family:var(--font-display); font-size:1.05rem; font-weight:900; text-transform:uppercase; color:var(--white); flex:1; letter-spacing:0.04em; }
+    .mega-col-arrow { font-size:0.85rem; color:var(--grey-mid); transition:transform 0.15s,color 0.15s; }
+    .mega-col-head:hover .mega-col-arrow { transform:translateX(4px); color:var(--white); }
+    /* Items */
+    .mega-item { display:block; font-size:0.86rem; color:rgba(235,235,235,0.58); padding:7px 0; border-bottom:1px solid rgba(235,235,235,0.05); transition:color 0.15s,padding-left 0.15s; }
+    .mega-item:last-child { border-bottom:none; }
+    .mega-item:hover { color:var(--white); padding-left:8px; }
+    /* CTA + toggle */
+    .nav-cta { margin-left:auto; display:flex; align-items:center; gap:10px; }
+    .nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; margin-left:auto; background:none; border:none; }
+    .nav-toggle span { display:block; width:22px; height:2px; background:var(--seashell); border-radius:2px; transition:transform 0.25s,opacity 0.25s; }
+    .mobile-nav { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:var(--charcoal); overflow-y:auto; padding:32px clamp(20px,5vw,80px); z-index:99; }
+    .mobile-nav.open { display:block; }
+    .mobile-section { margin-bottom:28px; }
+    .mobile-section-label { font-family:var(--font-display); font-size:0.65rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; }
+    .mobile-link { display:block; font-size:1rem; color:rgba(235,235,235,0.75); padding:8px 0; border-bottom:1px solid var(--grey-line); }
+
+    /* PAGE HERO */
+    .page-hero { padding-top: calc(var(--nav-h) + clamp(48px, 7vw, 88px)); padding-bottom: clamp(48px, 6vw, 80px); position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(30,15,200,0.35) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 0% 100%, rgba(238,68,35,0.1) 0%, transparent 50%); pointer-events: none; }
+    .page-hero-noise { position: absolute; inset: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .page-hero-inner { position: relative; }
+    .page-hero h1 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 900; text-transform: uppercase; line-height: 0.92; margin-bottom: 20px; }
+    .page-hero p { font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(235,235,235,0.65); max-width: 480px; line-height: 1.75; }
+    .accent { color: var(--blue); }
+
+    /* CONTACT LAYOUT */
+    .contact-section { padding: clamp(48px, 6vw, 80px) 0 var(--section-pad); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 420px; gap: clamp(40px, 6vw, 80px); align-items: start; }
+
+    /* FORM */
+    .contact-form-wrap { background: var(--charcoal2); border-radius: var(--radius-lg); border: 1px solid var(--grey-line); padding: clamp(28px, 4vw, 48px); }
+    .form-heading { font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .form-sub { font-size: 0.9rem; font-weight: 300; color: var(--grey-mid); margin-bottom: 32px; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--charcoal3, #2e2e2e); border: 1px solid rgba(235,235,235,0.12); border-radius: var(--radius);
+      padding: 12px 14px; font-family: var(--font-body); font-size: 0.9rem; color: var(--seashell);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(235,235,235,0.3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(30,15,200,0.15); }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9A9A' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+    .form-group select option { background: var(--charcoal2); }
+    .form-group textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .form-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 24px; }
+    .form-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--blue); flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+    .form-check label { font-size: 0.82rem; color: var(--grey-mid); line-height: 1.5; }
+    .form-check a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+    .form-submit .btn { width: 100%; justify-content: center; padding: 16px; font-size: 0.95rem; }
+    .form-note { text-align: center; margin-top: 12px; font-size: 0.75rem; color: var(--grey-mid); }
+
+    /* CONTACT SIDEBAR */
+    .contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .contact-card { background: var(--charcoal2); border: 1px solid var(--grey-line); border-radius: var(--radius-lg); padding: 24px 28px; }
+    .contact-card-icon { width: 44px; height: 44px; background: rgba(30,15,200,0.15); border-radius: 10px; display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 14px; }
+    .contact-card h3 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--seashell); margin-bottom: 4px; }
+    .contact-card p { font-size: 0.85rem; font-weight: 300; color: var(--grey-mid); line-height: 1.6; }
+    .contact-card a { color: var(--seashell); font-weight: 500; transition: color 0.2s; }
+    .contact-card a:hover { color: var(--blue); }
+    .contact-card .contact-detail { margin-top: 10px; font-size: 0.9rem; font-weight: 500; color: var(--seashell); }
+
+    .office-hours { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .hour-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding-bottom: 6px; border-bottom: 1px solid var(--grey-line); }
+    .hour-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .hour-row .day { color: var(--grey-mid); }
+    .hour-row .time { color: var(--seashell); font-weight: 500; }
+
+    .booking-cta-card { background: linear-gradient(135deg, rgba(30,15,200,0.25) 0%, rgba(30,15,200,0.08) 100%); border: 1px solid rgba(30,15,200,0.3); border-radius: var(--radius-lg); padding: 28px; text-align: center; }
+    .booking-cta-card h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .booking-cta-card p { font-size: 0.85rem; color: rgba(235,235,235,0.65); margin-bottom: 20px; line-height: 1.6; }
+    .booking-cta-card .btn { width: 100%; justify-content: center; }
+
+    /* FAQ */
+    .faq-section { padding: var(--section-pad) 0; background: var(--charcoal2); }
+    .faq-header { text-align: center; margin-bottom: clamp(36px, 4vw, 56px); }
+    .faq-header .divider { margin-inline: auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .faq-item { background: var(--charcoal); padding: 0; border-radius: 0; overflow: hidden; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; cursor: pointer; transition: background 0.2s; }
+    .faq-q:hover { background: rgba(255,255,255,0.03); }
+    .faq-q h3 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--seashell); line-height: 1.4; }
+    .faq-icon { width: 24px; height: 24px; border: 1px solid var(--grey-line); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; font-size: 0.8rem; color: var(--grey-mid); transition: all 0.2s; }
+    .faq-item.open .faq-icon { background: var(--blue); border-color: var(--blue); color: var(--white); transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease-out), padding 0.25s; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a-inner { padding: 0 24px 20px; font-size: 0.875rem; font-weight: 300; color: rgba(235,235,235,0.7); line-height: 1.75; }
+
+    /* FOOTER */
+    footer { background: var(--charcoal2); border-top: 1px solid var(--grey-line); padding: clamp(48px, 6vw, 72px) 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: clamp(32px, 4vw, 48px); margin-bottom: 48px; }
+    .footer-brand p { margin-top: 16px; font-size: 0.875rem; font-weight: 300; color: var(--grey-mid); line-height: 1.7; max-width: 280px; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social-link { width: 36px; height: 36px; border: 1px solid var(--grey-line); border-radius: 50%; display: grid; place-items: center; font-size: 0.85rem; color: var(--grey-mid); transition: all 0.2s; }
+    .footer-social-link:hover { border-color: var(--blue); color: var(--blue); background: rgba(30,15,200,0.1); }
+    .footer-col h4 { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--seashell); margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 0.875rem; font-weight: 300; color: var(--grey-mid); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--seashell); }
+    .footer-bottom { border-top: 1px solid var(--grey-line); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--grey-mid); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.78rem; color: var(--grey-mid); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--seashell); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr; } .faq-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo-mark" aria-label="MVK Studios">
+        <img src="brand/Logo-WT.png" alt="MVK Studios" style="height:42px;width:auto;" />
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li class="has-mega" role="none">
+          <a href="services" class="nav-link" role="menuitem">Services</a>
+                      <div class="mega-menu">
+            <div class="mega-panel">
+              <div class="mega-col" data-pillar="finance">
+                <a href="services-finance" class="mega-col-head">
+                  <span class="mega-col-icon">$</span>
+                  <span class="mega-col-name">Finance</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-finance" class="mega-item">Bookkeeping &amp; Reporting</a>
+                <a href="services-finance" class="mega-item">Forecasting &amp; Modelling</a>
+                <a href="services-finance" class="mega-item">Business Structuring</a>
+                <a href="services-finance" class="mega-item">ASIC &amp; Compliance</a>
+                <a href="services-finance" class="mega-item">Payroll, Super &amp; PAYG</a>
+              </div>
+              <div class="mega-col" data-pillar="ops">
+                <a href="services-operations" class="mega-col-head">
+                  <span class="mega-col-icon">⚙</span>
+                  <span class="mega-col-name">Operations</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-operations" class="mega-item">Process Design &amp; SOPs</a>
+                <a href="services-operations" class="mega-item">Project Management</a>
+                <a href="services-operations" class="mega-item">HR &amp; People Ops</a>
+                <a href="services-operations" class="mega-item">Onboarding Frameworks</a>
+                <a href="services-operations" class="mega-item">Contractor Management</a>
+              </div>
+              <div class="mega-col" data-pillar="tech">
+                <a href="services-technology" class="mega-col-head">
+                  <span class="mega-col-icon">◈</span>
+                  <span class="mega-col-name">Technology</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-technology" class="mega-item">CRM &amp; Automation</a>
+                <a href="services-technology" class="mega-item">Web &amp; App Development</a>
+                <a href="services-technology" class="mega-item">AI Agents &amp; Integrations</a>
+                <a href="services-technology" class="mega-item">Data &amp; Analytics</a>
+                <a href="services-technology" class="mega-item">E-Commerce Systems</a>
+              </div>
+              <div class="mega-col" data-pillar="marketing">
+                <a href="services-marketing" class="mega-col-head">
+                  <span class="mega-col-icon">↗</span>
+                  <span class="mega-col-name">Marketing</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-marketing" class="mega-item">Paid Media</a>
+                <a href="services-marketing" class="mega-item">Email &amp; SMS</a>
+                <a href="services-marketing" class="mega-item">SEO / AEO / AI-Search</a>
+                <a href="services-marketing" class="mega-item">Social Media</a>
+                <a href="services-marketing" class="mega-item">Attribution Tracking</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li role="none"><a href="plans" class="nav-link" role="menuitem">Plans</a></li>
+        <li role="none"><a href="work" class="nav-link" role="menuitem">Work</a></li>
+        <li role="none"><a href="about" class="nav-link" role="menuitem">About</a></li>
+        <li role="none"><a href="insights" class="nav-link" role="menuitem">Insights</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact" class="btn btn-primary" style="padding:10px 20px;font-size:0.78rem;">Get Started</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <nav class="mobile-nav-links"><a href="services">Services</a><a href="plans">Plans</a><a href="work">Work</a><a href="about">About</a><a href="insights">Insights</a><a href="contact">Contact</a></nav>
+    <div class="mobile-nav-cta"><a href="contact" class="btn btn-primary">Get Started</a></div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-noise" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <div class="tag">Get In Touch</div>
+      <h1>Let's Build<br/>Something <span class="accent">Real.</span></h1>
+      <p>Whether you're ready to start, just exploring, or have a specific question — we're quick to respond and happy to help map out what makes sense for your business.</p>
+    </div>
+  </header>
+
+  <!-- CONTACT MAIN -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap reveal">
+          <h2 class="form-heading">Send Us a Message</h2>
+          <p class="form-sub">Fill in the form and we'll get back to you within one business day.</p>
+          <form action="#" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="fname">First Name *</label><input type="text" id="fname" name="fname" placeholder="Aaron" required autocomplete="given-name" /></div>
+              <div class="form-group"><label for="lname">Last Name *</label><input type="text" id="lname" name="lname" placeholder="Yeap" required autocomplete="family-name" /></div>
+            </div>
+            <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" placeholder="hello@yourbusiness.com.au" required autocomplete="email" /></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+61 4xx xxx xxx" autocomplete="tel" /></div>
+            <div class="form-group"><label for="business">Business Name</label><input type="text" id="business" name="business" placeholder="Your Business Pty Ltd" /></div>
+            <div class="form-group">
+              <label for="interest">What Are You Interested In?</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="crm">CRM &amp; Automation Setup</option>
+                <option value="email">Email &amp; SMS Marketing</option>
+                <option value="leads">Lead Management</option>
+                <option value="booking">Booking &amp; Pipeline Systems</option>
+                <option value="ads">Google Ads</option>
+                <option value="plans">Pricing &amp; Plans</option>
+                <option value="other">Something Else</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" placeholder="Tell us a bit about your business and what you're looking to achieve…" required></textarea></div>
+            <div class="form-check">
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <label for="privacy">I agree to the <a href="privacy">Privacy Policy</a> and consent to being contacted by MVK Studios regarding my enquiry.</label>
+            </div>
+            <div class="form-submit"><button type="submit" class="btn btn-primary">Send Message ↗</button></div>
+            <p class="form-note">We typically respond within 4 business hours.</p>
+          </form>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="contact-sidebar">
+          <div class="booking-cta-card reveal">
+            <h3>Book a Free Strategy Call</h3>
+            <p>30 minutes with our team. No pitch, no pressure — just an honest conversation about what systems your business actually needs.</p>
+            <a href="book" class="btn btn-primary">Book a Call ↗</a>
+          </div>
+
+          <div class="contact-card reveal">
+            <div class="contact-card-icon" aria-hidden="true">📍</div>
+            <h3>Our Location</h3>
+            <p>We're based in Melbourne, Australia. We work with businesses across Australia and internationally.</p>
+            <div class="contact-detail">Melbourne, VIC 3000, Australia</div>
+          </div>
+
+          <div class="contact-card reveal">
+            <div class="contact-card-icon" aria-hidden="true">✉️</div>
+            <h3>Email Us</h3>
+            <p>For general enquiries, partnerships, and press.</p>
+            <div class="contact-detail"><a href="mailto:hello@mvkstudios.com.au">hello@mvkstudios.com.au</a></div>
+          </div>
+
+          <div class="contact-card reveal">
+            <div class="contact-card-icon" aria-hidden="true">🕐</div>
+            <h3>Office Hours</h3>
+            <div class="office-hours">
+              <div class="hour-row"><span class="day">Monday – Friday</span><span class="time">9:00 – 17:30 AEST</span></div>
+              <div class="hour-row"><span class="day">Saturday</span><span class="time">10:00 – 14:00 AEST</span></div>
+              <div class="hour-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="faq-header">
+        <div class="tag">FAQ</div>
+        <h2 class="section-title" id="faq-heading">Common Questions.</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="faq-grid" role="list">
+        <div class="faq-item reveal" role="listitem">
+          <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><h3>How quickly can you get my CRM set up?</h3><span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a"><p class="faq-a-inner">Most Starter CRM builds are live within 3–5 business days from onboarding. Medium and Enterprise builds vary — typically 1–3 weeks depending on complexity and integration requirements.</p></div>
+        </div>
+        <div class="faq-item reveal" role="listitem">
+          <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><h3>Do I need a GoHighLevel account already?</h3><span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a"><p class="faq-a-inner">No — we handle the setup and provisioning as part of your plan. GoHighLevel is included in all MVK Studios subscription plans, so there's nothing extra to purchase separately.</p></div>
+        </div>
+        <div class="faq-item reveal" role="listitem">
+          <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><h3>Is there a minimum contract length?</h3><span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a"><p class="faq-a-inner">All plans are month-to-month subscriptions — no lock-in contracts. We believe in earning your business every month, not trapping you in a 12-month agreement.</p></div>
+        </div>
+        <div class="faq-item reveal" role="listitem">
+          <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><h3>Can I upgrade my plan as my business grows?</h3><span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a"><p class="faq-a-inner">Yes — our plans are designed with natural upgrade paths. You can move between Small, Medium, and Large tiers at any time, and we'll migrate your existing data and automations as part of the upgrade.</p></div>
+        </div>
+        <div class="faq-item reveal" role="listitem">
+          <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><h3>Do you work with businesses outside Melbourne?</h3><span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a"><p class="faq-a-inner">Absolutely. While we're Melbourne-based, we work with clients across Australia and internationally. Everything we do is delivered digitally, so location is never a barrier.</p></div>
+        </div>
+        <div class="faq-item reveal" role="listitem">
+          <div class="faq-q" role="button" tabindex="0" aria-expanded="false"><h3>What happens in the free strategy call?</h3><span class="faq-icon" aria-hidden="true">+</span></div>
+          <div class="faq-a"><p class="faq-a-inner">It's a 30-minute conversation where we ask about your business, your current tools, and your goals. At the end, we recommend the plan that fits — or tell you honestly if we're not the right fit.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" aria-label="MVK Studios">
+            <img src="brand/Logo-WT.png" alt="MVK Studios" style="height:32px;width:auto;" />
+          </a>
+          <p>A Melbourne-based growth studio covering Finance, Operations, Technology and Marketing — one partner, not four agencies.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/mvkstudios" class="footer-social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+            <a href="https://instagram.com/mvkstudios" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div>
+            <div class="footer-col-title">Finance</div>
+            <a href="services-finance" class="footer-link">Bookkeeping &amp; Reporting</a>
+            <a href="services-finance" class="footer-link">Forecasting &amp; Modelling</a>
+            <a href="services-finance" class="footer-link">Business Structuring</a>
+            <a href="services-finance" class="footer-link">ASIC &amp; Compliance</a>
+            <a href="services-finance" class="footer-link">Payroll &amp; Super</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Ops &amp; Tech</div>
+            <a href="services-operations" class="footer-link">Process &amp; SOPs</a>
+            <a href="services-operations" class="footer-link">Project Management</a>
+            <a href="services-operations" class="footer-link">HR &amp; People Ops</a>
+            <a href="services-technology" class="footer-link">CRM &amp; Automation</a>
+            <a href="services-technology" class="footer-link">AI Agents</a>
+            <a href="services-technology" class="footer-link">Web &amp; App Dev</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Marketing</div>
+            <a href="services-marketing" class="footer-link">Paid Media</a>
+            <a href="services-marketing" class="footer-link">Email &amp; SMS</a>
+            <a href="services-marketing" class="footer-link">SEO / AEO / AI-Search</a>
+            <a href="services-marketing" class="footer-link">Social Media</a>
+            <a href="services-marketing" class="footer-link">Attribution Tracking</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Company</div>
+            <a href="plans" class="footer-link">Plans &amp; Pricing</a>
+            <a href="work" class="footer-link">Our Work</a>
+            <a href="about" class="footer-link">About</a>
+            <a href="insights" class="footer-link">Insights</a>
+            <a href="careers" class="footer-link">Careers</a>
+            <a href="contact" class="footer-link">Contact</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2026 MVK STUDIOS</p>
+        <p class="footer-legal">
+          <a href="privacy">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="terms">Terms of Service</a> &nbsp;·&nbsp;
+          <a href="cookies">Cookie Policy</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      mobileNav.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+  </script>
+</body>
+</html>

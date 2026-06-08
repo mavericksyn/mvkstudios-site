@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About MVK Studios — Melbourne Digital Growth Studio</title>
+  <meta name="description" content="MVK Studios is a Melbourne-based digital growth studio. Learn about our story, our team, our values, and how we build systems that help businesses grow." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mvkstudios.com.au/about" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About MVK Studios" />
+  <meta property="og:description" content="Melbourne-based digital growth studio building CRM, automation, and marketing systems for ambitious businesses." />
+  <meta property="og:url" content="https://mvkstudios.com.au/about" />
+  <meta property="og:image" content="https://mvkstudios.com.au/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1E0FC8; --orange: #EE4423;
+      --charcoal: #1A1A1A; --charcoal2: #242424; --charcoal3: #2e2e2e;
+      --seashell: #EBEBEB; --white: #FFFFFF; --grey-mid: #9A9A9A;
+      --grey-line: rgba(235,235,235,0.1);
+      --font-display: 'Barlow Condensed', sans-serif; --font-body: 'Barlow', sans-serif;
+      --nav-h: 88px; --section-pad: clamp(60px, 8vw, 120px);
+      --container: min(1240px, 100% - 2 * clamp(20px, 5vw, 80px));
+      --radius: 4px; --radius-lg: 12px; --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--charcoal); color: var(--seashell); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .container { width: var(--container); margin-inline: auto; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: var(--radius); transition: all 0.25s var(--ease-out); white-space: nowrap; }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: var(--orange); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(238,68,35,0.35); }
+    .btn-outline { background: transparent; color: var(--seashell); border: 1.5px solid rgba(235,235,235,0.4); }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .btn-arrow::after { content: '↗'; font-size: 1.1em; transition: transform 0.2s; }
+    .btn-arrow:hover::after { transform: translate(3px,-3px); }
+    .tag { display: inline-block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); padding: 4px 10px; border: 1px solid var(--orange); border-radius: 2px; margin-bottom: 16px; }
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.01em; }
+    .section-title { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: var(--seashell); text-transform: uppercase; }
+    .divider { width: 48px; height: 3px; background: var(--orange); margin: 16px 0 24px; }
+    .logo-mark { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .logo-mark svg { width: 38px; height: 38px; flex-shrink: 0; }
+    .logo-mark .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-mark .logo-mvk { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; letter-spacing: 0.02em; color: var(--seashell); text-transform: lowercase; }
+    .logo-mark .logo-studios { font-family: var(--font-body); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey-mid); margin-top: 1px; }
+    /* NAV — identical to homepage */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: var(--nav-h); transition: background 0.3s, box-shadow 0.3s; }
+    #nav.scrolled { background: rgba(26,26,26,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--grey-line); }
+    .nav-inner { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-item { position: relative; }
+    .nav-link { display: flex; align-items: center; gap: 5px; padding: 8px 14px; font-size: 0.875rem; font-weight: 500; color: rgba(235,235,235,0.8); border-radius: var(--radius); transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .nav-link:hover, .nav-link.active { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-link .chevron { font-size: 0.65rem; transition: transform 0.2s; opacity: 0.6; }
+    .nav-item:hover .chevron { transform: rotate(180deg); }
+    .mega-menu { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 560px; background: var(--charcoal2); border: 1px solid var(--grey-line); border-radius: var(--radius-lg); padding: 24px; opacity: 0; visibility: hidden; transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out), visibility 0.2s; box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+    .nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .mega-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mega-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border-radius: 8px; transition: background 0.15s; }
+    .mega-item:hover { background: rgba(255,255,255,0.05); }
+    .mega-item-icon { width: 36px; height: 36px; background: rgba(30,15,200,0.2); border-radius: 8px; display: grid; place-items: center; font-size: 1rem; flex-shrink: 0; transition: background 0.15s; }
+    .mega-item:hover .mega-item-icon { background: var(--blue); }
+    .mega-item-text h4 { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; color: var(--seashell); line-height: 1.3; margin-bottom: 2px; }
+    .mega-item-text p { font-size: 0.78rem; color: var(--grey-mid); line-height: 1.4; }
+    .mega-menu-footer { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--grey-line); display: flex; align-items: center; justify-content: space-between; }
+    .mega-menu-footer p { font-size: 0.8rem; color: var(--grey-mid); }
+    .mega-menu-footer a { font-size: 0.8rem; font-weight: 600; color: var(--blue); transition: color 0.2s; }
+    .mega-menu-footer a:hover { color: var(--orange); }
+    .simple-dropdown { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 200px; background: var(--charcoal2); border: 1px solid var(--grey-line); border-radius: var(--radius-lg); padding: 8px; opacity: 0; visibility: hidden; transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out), visibility 0.2s; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .nav-item:hover .simple-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .simple-dropdown a { display: block; padding: 10px 14px; font-size: 0.875rem; color: rgba(235,235,235,0.8); border-radius: 6px; transition: background 0.15s, color 0.15s; }
+    .simple-dropdown a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--seashell); border-radius: 2px; transition: all 0.3s var(--ease-out); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav { display: none; position: fixed; inset: 0; top: var(--nav-h); background: var(--charcoal); z-index: 999; padding: 32px clamp(20px, 5vw, 48px); overflow-y: auto; transform: translateX(100%); transition: transform 0.35s var(--ease-out); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav-links a { display: block; font-family: var(--font-display); font-size: clamp(2rem, 7vw, 3rem); font-weight: 800; text-transform: uppercase; color: var(--seashell); padding: 12px 0; border-bottom: 1px solid var(--grey-line); transition: color 0.2s; }
+    .mobile-nav-links a:hover { color: var(--orange); }
+    .mobile-nav-cta { margin-top: 32px; }
+    .mobile-nav-cta .btn { width: 100%; justify-content: center; }
+
+    /* PAGE HERO */
+    .page-hero { padding-top: calc(var(--nav-h) + clamp(48px,7vw,88px)); padding-bottom: clamp(48px,6vw,80px); position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(30,15,200,0.35) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 0% 100%, rgba(238,68,35,0.1) 0%, transparent 50%); pointer-events: none; }
+    .page-hero-noise { position: absolute; inset: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .page-hero-inner { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .page-hero h1 { font-size: clamp(3rem, 7.5vw, 7rem); font-weight: 900; text-transform: uppercase; line-height: 0.92; margin-bottom: 20px; }
+    .page-hero-desc { font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300; color: rgba(235,235,235,0.65); line-height: 1.75; }
+    .page-hero-right { display: flex; flex-direction: column; gap: 16px; }
+    .hero-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .hero-stat { background: var(--charcoal2); padding: 20px 24px; }
+    .hero-stat .num { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: var(--seashell); line-height: 1; }
+    .hero-stat .num span { color: var(--orange); }
+    .hero-stat .lbl { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); margin-top: 4px; }
+    .accent { color: var(--blue); }
+
+    /* STORY */
+    .story-section { padding: var(--section-pad) 0; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+    .story-visual { position: relative; aspect-ratio: 4/5; background: var(--charcoal2); border-radius: var(--radius-lg); overflow: hidden; }
+    .story-visual-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at 30% 70%, rgba(30,15,200,0.5) 0%, transparent 60%), radial-gradient(ellipse 60% 60% at 80% 20%, rgba(238,68,35,0.3) 0%, transparent 55%); }
+    .story-arrow { position: absolute; inset: 0; display: grid; place-items: center; }
+    .story-arrow svg { width: 60%; opacity: 0.45; }
+    .story-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(26,26,26,0.9); backdrop-filter: blur(8px); border: 1px solid var(--grey-line); border-radius: 8px; padding: 16px 20px; }
+    .story-badge strong { display: block; font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--seashell); }
+    .story-badge span { font-size: 0.78rem; color: var(--grey-mid); }
+    .story-content p { font-size: 1rem; font-weight: 300; color: rgba(235,235,235,0.7); line-height: 1.85; margin-bottom: 20px; }
+
+    /* VALUES */
+    .values-section { padding: var(--section-pad) 0; background: var(--charcoal2); }
+    .values-header { margin-bottom: clamp(36px,4vw,56px); }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .value-card { background: var(--charcoal); padding: clamp(24px, 3vw, 36px); position: relative; overflow: hidden; }
+    .value-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease-out); }
+    .value-card:hover::after { transform: scaleX(1); }
+    .value-num { font-family: var(--font-display); font-size: 5rem; font-weight: 900; color: rgba(30,15,200,0.1); line-height: 1; margin-bottom: 12px; }
+    .value-card h3 { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+    .value-card p { font-size: 0.875rem; font-weight: 300; color: var(--grey-mid); line-height: 1.65; }
+
+    /* TIMELINE */
+    .timeline-section { padding: var(--section-pad) 0; }
+    .timeline-header { margin-bottom: clamp(36px,4vw,56px); }
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--grey-line); transform: translateX(-50%); }
+    .timeline-item { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px; position: relative; }
+    .timeline-item:nth-child(even) .timeline-content { order: 2; }
+    .timeline-item:nth-child(even) .timeline-year-wrap { order: 1; text-align: right; }
+    .timeline-dot { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 14px; height: 14px; background: var(--blue); border-radius: 50%; border: 3px solid var(--charcoal); z-index: 1; }
+    .timeline-year-wrap { padding: 0 32px; }
+    .timeline-year { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4rem); font-weight: 900; color: rgba(30,15,200,0.2); line-height: 1; }
+    .timeline-content { background: var(--charcoal2); border-radius: var(--radius-lg); padding: 24px 28px; border: 1px solid var(--grey-line); }
+    .timeline-content h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--seashell); margin-bottom: 6px; }
+    .timeline-content p { font-size: 0.875rem; font-weight: 300; color: var(--grey-mid); line-height: 1.65; }
+
+    /* TEAM */
+    .team-section { padding: var(--section-pad) 0; background: var(--charcoal2); }
+    .team-header { margin-bottom: clamp(36px,4vw,56px); }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .team-card { background: var(--charcoal); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--grey-line); transition: border-color 0.25s, transform 0.25s var(--ease-out); }
+    .team-card:hover { border-color: rgba(30,15,200,0.4); transform: translateY(-4px); }
+    .team-avatar { aspect-ratio: 1; background: linear-gradient(135deg, var(--blue) 0%, #0a065a 60%, var(--orange) 100%); display: grid; place-items: center; font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: rgba(255,255,255,0.2); position: relative; overflow: hidden; }
+    .team-avatar-pattern { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0.12; }
+    .team-avatar-pattern svg { width: 60%; }
+    .team-avatar-initials { position: relative; font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: rgba(255,255,255,0.5); }
+    .team-info { padding: 16px 18px 20px; }
+    .team-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--seashell); margin-bottom: 2px; }
+    .team-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    .team-bio { font-size: 0.8rem; font-weight: 300; color: var(--grey-mid); line-height: 1.55; }
+
+    /* CTA BAND */
+    .cta-band { padding: var(--section-pad) 0; text-align: center; position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 100% at 50% 100%, rgba(30,15,200,0.5) 0%, transparent 60%), var(--charcoal); }
+    .cta-band-inner { position: relative; }
+    .cta-band h2 { font-size: clamp(2.5rem, 7vw, 7rem); font-weight: 900; text-transform: uppercase; line-height: 0.92; margin-bottom: 20px; }
+    .cta-band h2 em { color: var(--blue); font-style: normal; }
+    .cta-band p { max-width: 480px; margin: 0 auto 32px; font-size: 1rem; font-weight: 300; color: rgba(235,235,235,0.65); line-height: 1.7; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--charcoal2); border-top: 1px solid var(--grey-line); padding: clamp(48px, 6vw, 72px) 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: clamp(32px, 4vw, 48px); margin-bottom: 48px; }
+    .footer-brand p { margin-top: 16px; font-size: 0.875rem; font-weight: 300; color: var(--grey-mid); line-height: 1.7; max-width: 280px; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social-link { width: 36px; height: 36px; border: 1px solid var(--grey-line); border-radius: 50%; display: grid; place-items: center; font-size: 0.85rem; color: var(--grey-mid); transition: all 0.2s; }
+    .footer-social-link:hover { border-color: var(--blue); color: var(--blue); background: rgba(30,15,200,0.1); }
+    .footer-col h4 { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--seashell); margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 0.875rem; font-weight: 300; color: var(--grey-mid); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--seashell); }
+    .footer-bottom { border-top: 1px solid var(--grey-line); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--grey-mid); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.78rem; color: var(--grey-mid); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--seashell); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1024px) { .team-grid { grid-template-columns: repeat(2, 1fr); } .values-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; } .hamburger { display: flex; } .mobile-nav { display: block; }
+      .page-hero-inner { grid-template-columns: 1fr; } .story-grid { grid-template-columns: 1fr; }
+      .story-visual { aspect-ratio: 4/3; max-height: 320px; }
+      .timeline::before { left: 20px; } .timeline-item { grid-template-columns: 1fr; gap: 16px; }
+      .timeline-item:nth-child(even) .timeline-content, .timeline-item:nth-child(even) .timeline-year-wrap { order: unset; text-align: left; }
+      .timeline-year-wrap { padding-left: 52px; } .timeline-dot { left: 20px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo-mark" aria-label="MVK Studios">
+        <img src="brand/Logo-WT.png" alt="MVK Studios" style="height:42px;width:auto;" />
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li class="has-mega" role="none">
+          <a href="services" class="nav-link" role="menuitem">Services</a>
+                      <div class="mega-menu">
+            <div class="mega-panel">
+              <div class="mega-col" data-pillar="finance">
+                <a href="services-finance" class="mega-col-head">
+                  <span class="mega-col-icon">$</span>
+                  <span class="mega-col-name">Finance</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-finance" class="mega-item">Bookkeeping &amp; Reporting</a>
+                <a href="services-finance" class="mega-item">Forecasting &amp; Modelling</a>
+                <a href="services-finance" class="mega-item">Business Structuring</a>
+                <a href="services-finance" class="mega-item">ASIC &amp; Compliance</a>
+                <a href="services-finance" class="mega-item">Payroll, Super &amp; PAYG</a>
+              </div>
+              <div class="mega-col" data-pillar="ops">
+                <a href="services-operations" class="mega-col-head">
+                  <span class="mega-col-icon">⚙</span>
+                  <span class="mega-col-name">Operations</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-operations" class="mega-item">Process Design &amp; SOPs</a>
+                <a href="services-operations" class="mega-item">Project Management</a>
+                <a href="services-operations" class="mega-item">HR &amp; People Ops</a>
+                <a href="services-operations" class="mega-item">Onboarding Frameworks</a>
+                <a href="services-operations" class="mega-item">Contractor Management</a>
+              </div>
+              <div class="mega-col" data-pillar="tech">
+                <a href="services-technology" class="mega-col-head">
+                  <span class="mega-col-icon">◈</span>
+                  <span class="mega-col-name">Technology</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-technology" class="mega-item">CRM &amp; Automation</a>
+                <a href="services-technology" class="mega-item">Web &amp; App Development</a>
+                <a href="services-technology" class="mega-item">AI Agents &amp; Integrations</a>
+                <a href="services-technology" class="mega-item">Data &amp; Analytics</a>
+                <a href="services-technology" class="mega-item">E-Commerce Systems</a>
+              </div>
+              <div class="mega-col" data-pillar="marketing">
+                <a href="services-marketing" class="mega-col-head">
+                  <span class="mega-col-icon">↗</span>
+                  <span class="mega-col-name">Marketing</span>
+                  <span class="mega-col-arrow">→</span>
+                </a>
+                <a href="services-marketing" class="mega-item">Paid Media</a>
+                <a href="services-marketing" class="mega-item">Email &amp; SMS</a>
+                <a href="services-marketing" class="mega-item">SEO / AEO / AI-Search</a>
+                <a href="services-marketing" class="mega-item">Social Media</a>
+                <a href="services-marketing" class="mega-item">Attribution Tracking</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li role="none"><a href="plans" class="nav-link" role="menuitem">Plans</a></li>
+        <li role="none"><a href="work" class="nav-link" role="menuitem">Work</a></li>
+        <li role="none"><a href="about" class="nav-link" role="menuitem">About</a></li>
+        <li role="none"><a href="insights" class="nav-link" role="menuitem">Insights</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact" class="btn btn-primary" style="padding:10px 20px;font-size:0.78rem;">Get Started</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <nav class="mobile-nav-links"><a href="services">Services</a><a href="plans">Plans</a><a href="work">Work</a><a href="about">About</a><a href="insights">Insights</a><a href="contact">Contact</a></nav>
+    <div class="mobile-nav-cta"><a href="contact" class="btn btn-primary">Get Started</a></div>
+  </div>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-noise" aria-hidden="true"></div>
+    <div class="container page-hero-inner">
+      <div>
+        <div class="tag">About Us</div>
+        <h1>We Build <span class="accent">The</span><br/>Machine.</h1>
+        <p class="page-hero-desc">MVK Studios is a Melbourne-based digital growth studio. We engineer CRM, automation, and marketing systems for businesses that are serious about growth — not just activity.</p>
+      </div>
+      <div class="page-hero-right">
+        <div class="hero-stat-row">
+          <div class="hero-stat reveal"><div class="num">150<span>+</span></div><div class="lbl">Clients Onboarded</div></div>
+          <div class="hero-stat reveal"><div class="num">9<span>×</span></div><div class="lbl">Lead Response Lift</div></div>
+          <div class="hero-stat reveal"><div class="num">3M<span>+</span></div><div class="lbl">Emails Delivered</div></div>
+          <div class="hero-stat reveal"><div class="num">98<span>%</span></div><div class="lbl">Client Retention</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STORY -->
+  <section class="story-section" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual reveal" aria-hidden="true">
+          <div class="story-visual-bg"></div>
+          <div class="story-arrow"><svg viewBox="0 0 200 200" fill="none"><path d="M20 180L20 20L100 20L180 100L100 100L100 180Z" fill="white"/><path d="M100 20L180 20L180 100" stroke="white" stroke-width="6" fill="none"/><path d="M44 44L156 156" stroke="white" stroke-width="6" stroke-linecap="square"/></svg></div>
+          <div class="story-badge"><strong>2020</strong><span>Founded in Melbourne</span></div>
+        </div>
+        <div class="reveal">
+          <div class="tag">Our Story</div>
+          <h2 class="section-title" id="story-heading">Built From Frustration.</h2>
+          <div class="divider"></div>
+          <p>MVK Studios was born out of a simple frustration: businesses were spending thousands on marketing with agencies who delivered reports, not results. The problem wasn't budget — it was infrastructure. Most small businesses didn't have the systems to capture, nurture, and convert the attention they were paying for.</p>
+          <p>So we built the infrastructure instead. Using GoHighLevel as our core delivery platform, we now engineer complete business operating systems — CRM stacks, automation flows, email and SMS campaigns, booking pipelines, and paid search — all under one subscription.</p>
+          <p>No lock-in contracts. No jargon. No fluff. Just systems that work as hard as you do, compounding in value over time.</p>
+          <a href="contact" class="btn btn-primary btn-arrow" style="margin-top:8px;">Work With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="values-header">
+        <div class="tag">What We Stand For</div>
+        <h2 class="section-title" id="values-heading">Our Values.</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="values-grid" role="list">
+        <div class="value-card reveal" role="listitem"><div class="value-num" aria-hidden="true">01</div><h3>Systems Over Hacks</h3><p>We don't chase trends or quick wins. We build infrastructure that compounds — automations, pipelines, and sequences that improve month over month without requiring constant input.</p></div>
+        <div class="value-card reveal" role="listitem"><div class="value-num" aria-hidden="true">02</div><h3>Honest Before Polished</h3><p>We'll tell you if a plan isn't right for your business. We'd rather lose a sale than onboard a client who won't get results. Reputation is the only currency that matters long-term.</p></div>
+        <div class="value-card reveal" role="listitem"><div class="value-num" aria-hidden="true">03</div><h3>Subscriptions, Not Retainers</h3><p>Retainers reward agency hours. Subscriptions reward outcomes. Our pricing model is designed to align our incentives with yours — if your system isn't working, you cancel. So we make sure it works.</p></div>
+        <div class="value-card reveal" role="listitem"><div class="value-num" aria-hidden="true">04</div><h3>Depth Over Breadth</h3><p>We don't try to be a full-service agency. We go deep on what we know — GoHighLevel, CRM architecture, marketing automation, and paid search. Specialist beats generalist every time.</p></div>
+        <div class="value-card reveal" role="listitem"><div class="value-num" aria-hidden="true">05</div><h3>Speed With Intention</h3><p>We move fast — most CRM builds are live within a week. But speed without structure creates chaos. Every build follows a proven process so nothing falls through the cracks.</p></div>
+        <div class="value-card reveal" role="listitem"><div class="value-num" aria-hidden="true">06</div><h3>Grow With the Client</h3><p>Our tier structure is intentional. We want clients to start lean, see results, and naturally scale up. Your plan should grow with your business, not restrict it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section" aria-labelledby="timeline-heading">
+    <div class="container">
+      <div class="timeline-header">
+        <div class="tag">Our Journey</div>
+        <h2 class="section-title" id="timeline-heading">How We Got Here.</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline" role="list">
+        <div class="timeline-item reveal" role="listitem"><div class="timeline-year-wrap"><div class="timeline-year">2020</div></div><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-content"><h3>MVK Studios Founded</h3><p>Started as a two-person operation in Melbourne, focused on GoHighLevel implementation for local service businesses.</p></div></div>
+        <div class="timeline-item reveal" role="listitem"><div class="timeline-year-wrap"><div class="timeline-year">2021</div></div><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-content"><h3>First 25 Clients Onboarded</h3><p>Refined the onboarding process and built the first iteration of our CRM setup methodology. Average time-to-live reduced to under 5 days.</p></div></div>
+        <div class="timeline-item reveal" role="listitem"><div class="timeline-year-wrap"><div class="timeline-year">2022</div></div><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-content"><h3>Subscription Model Launched</h3><p>Transitioned from project-based to subscription pricing — aligning our revenue model with long-term client outcomes for the first time.</p></div></div>
+        <div class="timeline-item reveal" role="listitem"><div class="timeline-year-wrap"><div class="timeline-year">2023</div></div><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-content"><h3>Google Ads Tier Introduced</h3><p>Added paid search management to the product suite, available from Medium Business tier upward. First 3M emails delivered milestone reached.</p></div></div>
+        <div class="timeline-item reveal" role="listitem"><div class="timeline-year-wrap"><div class="timeline-year">2025</div></div><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-content"><h3>150+ Clients. Still Growing.</h3><p>Expanded the team, launched the full 9-plan tier structure, and hit a 98% client retention rate. Still building from Melbourne.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="team" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="team-header">
+        <div class="tag">The Team</div>
+        <h2 class="section-title" id="team-heading">The People Behind the Systems.</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="team-grid" role="list">
+        <div class="team-card reveal" role="listitem"><div class="team-avatar"><div class="team-avatar-pattern" aria-hidden="true"><svg viewBox="0 0 200 200" fill="none"><path d="M20 180L20 20L100 20L180 100L100 100L100 180Z" fill="white"/></svg></div><div class="team-avatar-initials">AY</div></div><div class="team-info"><div class="team-name">Aaron Yeap</div><div class="team-role">Co-Founder &amp; CEO</div><p class="team-bio">Leads strategy, client relationships, and product direction. GoHighLevel specialist with 5+ years building CRM systems for service businesses.</p></div></div>
+        <div class="team-card reveal" role="listitem"><div class="team-avatar" style="background:linear-gradient(135deg,#EE4423 0%,#8a2510 60%,#1E0FC8 100%)"><div class="team-avatar-pattern" aria-hidden="true"><svg viewBox="0 0 200 200" fill="none"><path d="M20 180L20 20L100 20L180 100L100 100L100 180Z" fill="white"/></svg></div><div class="team-avatar-initials">TK</div></div><div class="team-info"><div class="team-name">Tet Khong Syn</div><div class="team-role">Co-Founder &amp; CTO</div><p class="team-bio">Oversees all technical delivery — automation architecture, integrations, and platform engineering. If it touches code or a workflow, Tet built it.</p></div></div>
+        <div class="team-card reveal" role="listitem"><div class="team-avatar" style="background:linear-gradient(135deg,#0c1a40 0%,#1E0FC8 100%)"><div class="team-avatar-pattern" aria-hidden="true"><svg viewBox="0 0 200 200" fill="none"><path d="M20 180L20 20L100 20L180 100L100 100L100 180Z" fill="white"/></svg></div><div class="team-avatar-initials">SR</div></div><div class="team-info"><div class="team-name">Sarah R.</div><div class="team-role">Head of Campaigns</div><p class="team-bio">Leads email and SMS strategy. Responsible for 3M+ emails delivered and a consistent above-industry open rate across all managed accounts.</p></div></div>
+        <div class="team-card reveal" role="listitem"><div class="team-avatar" style="background:linear-gradient(135deg,#1A1A1A 0%,#3a3a3a 100%)"><div class="team-avatar-pattern" aria-hidden="true"><svg viewBox="0 0 200 200" fill="none"><path d="M20 180L20 20L100 20L180 100L100 100L100 180Z" fill="white"/></svg></div><div class="team-avatar-initials">JP</div></div><div class="team-info"><div class="team-name">James P.</div><div class="team-role">Google Ads Strategist</div><p class="team-bio">Manages paid search across all client accounts. Specialises in local service businesses and B2B lead generation through Google Ads.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" aria-labelledby="cta-heading">
+    <div class="container cta-band-inner">
+      <h2 id="cta-heading">Ready to<br/><em>Work Together?</em></h2>
+      <p>Book a free strategy call and let's map out what the right system looks like for your business.</p>
+      <div class="cta-actions">
+        <a href="contact" class="btn btn-primary btn-arrow">Book a Strategy Call</a>
+        <a href="plans" class="btn btn-outline">See All Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" aria-label="MVK Studios">
+            <img src="brand/Logo-WT.png" alt="MVK Studios" style="height:32px;width:auto;" />
+          </a>
+          <p>A Melbourne-based growth studio covering Finance, Operations, Technology and Marketing — one partner, not four agencies.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/mvkstudios" class="footer-social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+            <a href="https://instagram.com/mvkstudios" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div>
+            <div class="footer-col-title">Finance</div>
+            <a href="services-finance" class="footer-link">Bookkeeping &amp; Reporting</a>
+            <a href="services-finance" class="footer-link">Forecasting &amp; Modelling</a>
+            <a href="services-finance" class="footer-link">Business Structuring</a>
+            <a href="services-finance" class="footer-link">ASIC &amp; Compliance</a>
+            <a href="services-finance" class="footer-link">Payroll &amp; Super</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Ops &amp; Tech</div>
+            <a href="services-operations" class="footer-link">Process &amp; SOPs</a>
+            <a href="services-operations" class="footer-link">Project Management</a>
+            <a href="services-operations" class="footer-link">HR &amp; People Ops</a>
+            <a href="services-technology" class="footer-link">CRM &amp; Automation</a>
+            <a href="services-technology" class="footer-link">AI Agents</a>
+            <a href="services-technology" class="footer-link">Web &amp; App Dev</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Marketing</div>
+            <a href="services-marketing" class="footer-link">Paid Media</a>
+            <a href="services-marketing" class="footer-link">Email &amp; SMS</a>
+            <a href="services-marketing" class="footer-link">SEO / AEO / AI-Search</a>
+            <a href="services-marketing" class="footer-link">Social Media</a>
+            <a href="services-marketing" class="footer-link">Attribution Tracking</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Company</div>
+            <a href="plans" class="footer-link">Plans &amp; Pricing</a>
+            <a href="work" class="footer-link">Our Work</a>
+            <a href="about" class="footer-link">About</a>
+            <a href="insights" class="footer-link">Insights</a>
+            <a href="careers" class="footer-link">Careers</a>
+            <a href="contact" class="footer-link">Contact</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2026 MVK STUDIOS</p>
+        <p class="footer-legal">
+          <a href="privacy">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="terms">Terms of Service</a> &nbsp;·&nbsp;
+          <a href="cookies">Cookie Policy</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      mobileNav.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+  </script>
+</body>
+</html>

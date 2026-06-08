@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Operations Services - MVK Studios</title>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--blue: #1E0FC8;
+			--charcoal: #1A1A1A;
+			--charcoal2: #242424;
+			--seashell: #EBEBEB;
+			--white: #FFFFFF;
+			--grey-mid: #9A9A9A;
+			--grey-line: rgba(235,235,235,0.1);
+			--orange: #EE4423;
+			--accent-yellow: #fbbf24;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Barlow', sans-serif;
+			background-color: var(--charcoal);
+			color: var(--seashell);
+			line-height: 1.6;
+		}
+
+		/* Navigation */
+		nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: rgba(26, 26, 26, 0.95);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid var(--grey-line);
+			z-index: 1000;
+			padding: 16px 40px;
+		}
+
+		.nav-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.nav-logo img {
+			height: 34px;
+			width: auto;
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 40px;
+			list-style: none;
+			align-items: center;
+		}
+
+		.nav-links a {
+			color: var(--seashell);
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: 500;
+			transition: color 0.3s ease;
+		}
+
+		.nav-links a:hover {
+			color: var(--orange);
+		}
+
+		.mega-menu {
+			position: relative;
+		}
+
+		.mega-menu-trigger {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.mega-menu-content {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: -80px;
+			background: var(--charcoal2);
+			border: 1px solid var(--grey-line);
+			border-radius: 8px;
+			padding: 32px;
+			margin-top: 12px;
+			min-width: 800px;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 40px;
+		}
+
+		.mega-menu:hover .mega-menu-content {
+			display: grid;
+		}
+
+		.mega-menu-column h4 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 18px;
+			font-weight: 700;
+			margin-bottom: 16px;
+			color: var(--white);
+		}
+
+		.mega-menu-column ul {
+			list-style: none;
+		}
+
+		.mega-menu-column li {
+			margin-bottom: 12px;
+		}
+
+		.mega-menu-column a {
+			color: var(--grey-mid);
+			text-decoration: none;
+			font-size: 13px;
+			transition: color 0.3s ease;
+		}
+
+		.mega-menu-column a:hover {
+			color: var(--orange);
+		}
+
+		.nav-cta {
+			background-color: var(--blue);
+			color: var(--white);
+			padding: 10px 24px;
+			border-radius: 4px;
+			text-decoration: none;
+			font-size: 13px;
+			font-weight: 600;
+			transition: background-color 0.3s ease;
+		}
+
+		.nav-cta:hover {
+			background-color: #1607a0;
+		}
+
+		/* Main content */
+		main {
+			margin-top: 70px;
+		}
+
+		/* Hero Section */
+		.hero {
+			background: linear-gradient(135deg, var(--charcoal2) 0%, var(--charcoal) 100%);
+			padding: 80px 40px;
+			text-align: center;
+			border-bottom: 1px solid var(--grey-line);
+		}
+
+		.hero-container {
+			max-width: 900px;
+			margin: 0 auto;
+		}
+
+		.pillar-tag {
+			display: inline-block;
+			background-color: rgba(251, 191, 36, 0.15);
+			border: 1px solid var(--accent-yellow);
+			color: var(--accent-yellow);
+			padding: 8px 16px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: 600;
+			margin-bottom: 24px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.hero h1 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 64px;
+			font-weight: 700;
+			color: var(--white);
+			margin-bottom: 24px;
+			line-height: 1.1;
+		}
+
+		.hero p {
+			font-size: 18px;
+			color: var(--grey-mid);
+			line-height: 1.8;
+		}
+
+		/* Services Section */
+		.services {
+			max-width: 1400px;
+			margin: 120px auto;
+			padding: 0 40px;
+		}
+
+		.services-intro {
+			margin-bottom: 80px;
+			text-align: center;
+		}
+
+		.services h2 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 48px;
+			font-weight: 700;
+			color: var(--white);
+			margin-bottom: 16px;
+		}
+
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 32px;
+			margin-bottom: 80px;
+		}
+
+		@media (min-width: 1200px) {
+			.services-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		.service-card {
+			background: var(--charcoal2);
+			border: 1px solid var(--grey-line);
+			border-radius: 8px;
+			padding: 40px;
+			transition: all 0.3s ease;
+		}
+
+		.service-card:hover {
+			border-color: var(--blue);
+			transform: translateY(-4px);
+		}
+
+		.service-icon {
+			width: 48px;
+			height: 48px;
+			background: rgba(30, 15, 200, 0.1);
+			border-radius: 8px;
+			margin-bottom: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.service-card h3 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 22px;
+			font-weight: 700;
+			color: var(--white);
+			margin-bottom: 12px;
+		}
+
+		.service-card > p {
+			font-size: 14px;
+			color: var(--grey-mid);
+			margin-bottom: 24px;
+			line-height: 1.6;
+		}
+
+		.service-inclusions {
+			list-style: none;
+		}
+
+		.service-inclusions li {
+			font-size: 13px;
+			color: var(--seashell);
+			padding-left: 24px;
+			margin-bottom: 8px;
+			position: relative;
+		}
+
+		.service-inclusions li:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 6px;
+			width: 6px;
+			height: 6px;
+			background-color: var(--accent-yellow);
+			border-radius: 50%;
+		}
+
+		/* Who it's for section */
+		.who-for {
+			background: var(--charcoal2);
+			padding: 80px 40px;
+			border: 1px solid var(--grey-line);
+			border-radius: 8px;
+			margin-bottom: 80px;
+		}
+
+		.who-for h3 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 32px;
+			font-weight: 700;
+			color: var(--white);
+			margin-bottom: 40px;
+			text-align: center;
+		}
+
+		.who-for-items {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 32px;
+		}
+
+		.who-for-item {
+			text-align: center;
+		}
+
+		.who-for-item p {
+			font-size: 15px;
+			color: var(--seashell);
+			line-height: 1.6;
+		}
+
+		/* CTA Section */
+		.cta-section {
+			background-color: var(--blue);
+			padding: 80px 40px;
+			border-radius: 8px;
+			text-align: center;
+			margin-bottom: 80px;
+		}
+
+		.cta-section h2 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 48px;
+			font-weight: 700;
+			color: var(--white);
+			margin-bottom: 32px;
+		}
+
+		.cta-button {
+			display: inline-block;
+			background-color: var(--orange);
+			color: var(--white);
+			padding: 14px 40px;
+			border-radius: 4px;
+			text-decoration: none;
+			font-size: 15px;
+			font-weight: 600;
+			transition: background-color 0.3s ease;
+		}
+
+		.cta-button:hover {
+			background-color: #d63416;
+		}
+
+		/* Footer */
+		footer {
+			background-color: #111;
+			border-top: 1px solid var(--grey-line);
+			padding: 60px 40px 40px;
+		}
+
+		.footer-container {
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		.footer-top {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+			gap: 40px;
+			margin-bottom: 60px;
+			padding-bottom: 60px;
+			border-bottom: 1px solid var(--grey-line);
+		}
+
+		.footer-brand img {
+			height: 28px;
+			width: auto;
+			margin-bottom: 16px;
+		}
+
+		.footer-brand p {
+			font-size: 13px;
+			color: var(--grey-mid);
+			line-height: 1.6;
+			margin-bottom: 24px;
+		}
+
+		.footer-social {
+			display: flex;
+			gap: 16px;
+		}
+
+		.footer-social a {
+			width: 36px;
+			height: 36px;
+			background: var(--charcoal2);
+			border-radius: 4px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--seashell);
+			text-decoration: none;
+			font-size: 14px;
+			transition: background-color 0.3s ease;
+		}
+
+		.footer-social a:hover {
+			background-color: var(--blue);
+		}
+
+		.footer-column h4 {
+			font-family: 'Barlow Condensed', sans-serif;
+			font-size: 14px;
+			font-weight: 700;
+			color: var(--white);
+			margin-bottom: 20px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.footer-column ul {
+			list-style: none;
+		}
+
+		.footer-column li {
+			margin-bottom: 12px;
+		}
+
+		.footer-column a {
+			font-size: 13px;
+			color: var(--grey-mid);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.footer-column a:hover {
+			color: var(--orange);
+		}
+
+		.footer-bottom {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 12px;
+			color: var(--grey-mid);
+		}
+
+		.footer-legal {
+			display: flex;
+			gap: 24px;
+		}
+
+		.footer-legal a {
+			color: var(--grey-mid);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.footer-legal a:hover {
+			color: var(--orange);
+		}
+
+		@media (max-width: 768px) {
+			.nav-links {
+				gap: 20px;
+				font-size: 12px;
+			}
+
+			.hero h1 {
+				font-size: 40px;
+			}
+
+			.services-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.mega-menu-content {
+				min-width: 100vw;
+				left: -40px;
+				grid-template-columns: 1fr;
+				gap: 24px;
+			}
+
+			.footer-top {
+				grid-template-columns: 1fr;
+				gap: 24px;
+			}
+
+			.footer-bottom {
+				flex-direction: column;
+				gap: 16px;
+				text-align: center;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav>
+		<div class="nav-container">
+			<div class="nav-logo">
+				<img src="brand/Logo-WT.png" alt="MVK Studios">
+			</div>
+			<ul class="nav-links">
+				<li class="mega-menu">
+					<span class="mega-menu-trigger">Services</span>
+					<div class="mega-menu-content">
+						<div class="mega-menu-column">
+							<h4>Finance</h4>
+							<ul>
+								<li><a href="services-finance">Overview</a></li>
+								<li><a href="services-finance.html#bookkeeping">Bookkeeping & Reporting</a></li>
+								<li><a href="services-finance.html#forecasting">Forecasting & Modelling</a></li>
+								<li><a href="services-finance.html#structuring">Business Structuring</a></li>
+							</ul>
+						</div>
+						<div class="mega-menu-column">
+							<h4>Operations</h4>
+							<ul>
+								<li><a href="services-operations">Overview</a></li>
+								<li><a href="services-operations.html#processes">Process Design</a></li>
+								<li><a href="services-operations.html#projects">Project Management</a></li>
+								<li><a href="services-operations.html#hr">HR & People Ops</a></li>
+							</ul>
+						</div>
+						<div class="mega-menu-column">
+							<h4>Technology</h4>
+							<ul>
+								<li><a href="services-technology">Overview</a></li>
+								<li><a href="services-technology.html#custom">Custom Development</a></li>
+								<li><a href="services-technology.html#integration">API Integration</a></li>
+								<li><a href="services-technology.html#infrastructure">Infrastructure</a></li>
+							</ul>
+						</div>
+						<div class="mega-menu-column">
+							<h4>Marketing</h4>
+							<ul>
+								<li><a href="services-marketing">Overview</a></li>
+								<li><a href="services-marketing.html#strategy">Strategy & Planning</a></li>
+								<li><a href="services-marketing.html#content">Content & Design</a></li>
+								<li><a href="services-marketing.html#performance">Performance Marketing</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li><a href="plans">Plans</a></li>
+				<li><a href="work">Work</a></li>
+				<li><a href="about">About</a></li>
+				<li><a href="insights">Insights</a></li>
+			</ul>
+			<a href="contact" class="nav-cta">Get Started</a>
+		</div>
+	</nav>
+
+	<!-- Main Content -->
+	<main>
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-container">
+				<div class="pillar-tag">Operations Services</div>
+				<h1>Systems that Scale Without You</h1>
+				<p>Remove chaos from your day-to-day. We design processes, structure teams, and build operational systems that run independently, freeing you to focus on strategic growth.</p>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section class="services">
+			<div class="services-intro">
+				<h2>Our Operations Services</h2>
+			</div>
+
+			<div class="services-grid">
+				<div class="service-card">
+					<div class="service-icon"></div>
+					<h3>Process Design & SOPs</h3>
+					<p>Map your current workflows and design repeatable systems that reduce decision fatigue, minimise errors, and scale without requiring your involvement.</p>
+					<ul class="service-inclusions">
+						<li>Business process mapping and documentation</li>
+						<li>Standard Operating Procedure (SOP) creation</li>
+						<li>Workflow diagrams and visualisation</li>
+						<li>Handover and transition documentation</li>
+						<li>Version control and process audit trails</li>
+					</ul>
+				</div>
+
+				<div class="service-card">
+					<div class="service-icon"></div>
+					<h3>Project Management</h3>
+					<p>Deliver initiatives on time and on budget with structured project planning, milestone tracking, and stakeholder communication frameworks.</p>
+					<ul class="service-inclusions">
+						<li>End-to-end project planning and delivery</li>
+						<li>Milestone definition and tracking</li>
+						<li>Team coordination and task management</li>
+						<li>Risk identification and mitigation planning</li>
+						<li>Stakeholder reporting and communication</li>
+					</ul>
+				</div>
+
+				<div class="service-card">
+					<div class="service-icon"></div>
+					<h3>HR & People Operations</h3>
+					<p>Build the people infrastructure that supports your team. Structured hiring, onboarding, performance management, and culture documentation.</p>
+					<ul class="service-inclusions">
+						<li>Hiring frameworks and interview processes</li>
+						<li>Role-specific job descriptions</li>
+						<li>Onboarding systems and checklists</li>
+						<li>Contractor management frameworks</li>
+						<li>Performance review templates and processes</li>
+						<li>Company culture documentation</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Who it's for -->
+			<div class="who-for">
+				<h3>Who it's for</h3>
+				<div class="who-for-items">
+					<div class="who-for-item">
+						<p><strong>Business owners drowning in day-to-day.</strong> Operations are consuming your time. You need systems to reduce the load and reclaim strategic thinking space.</p>
+					</div>
+					<div class="who-for-item">
+						<p><strong>Teams scaling headcount.</strong> Your processes worked with 3 people. They break at 12. We build the systems that scale.</p>
+					</div>
+					<div class="who-for-item">
+						<p><strong>Founders preparing to step back.</strong> You're ready to step out of day-to-day. Documented processes and clear delegations make that possible.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- CTA Section -->
+			<div class="cta-section">
+				<h2>Build a business that runs itself</h2>
+				<a href="contact" class="cta-button">Book a call</a>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer>
+		<div class="footer-container">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<img src="brand/Logo-WT.png" alt="MVK Studios">
+					<p>Strategic studio building scalable, operationally excellent businesses through finance, systems, technology and marketing.</p>
+					<div class="footer-social">
+						<a href="#" title="LinkedIn">in</a>
+						<a href="#" title="Twitter">𝕏</a>
+						<a href="#" title="Instagram">ig</a>
+					</div>
+				</div>
+				<div class="footer-column">
+					<h4>Finance</h4>
+					<ul>
+						<li><a href="services-finance">Services</a></li>
+						<li><a href="#bookkeeping">Bookkeeping</a></li>
+						<li><a href="#forecasting">Forecasting</a></li>
+						<li><a href="#structuring">Structuring</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>Operations & Tech</h4>
+					<ul>
+						<li><a href="services-operations">Operations</a></li>
+						<li><a href="services-technology">Technology</a></li>
+						<li><a href="#processes">Processes</a></li>
+						<li><a href="#projects">Projects</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>Marketing</h4>
+					<ul>
+						<li><a href="services-marketing">Services</a></li>
+						<li><a href="#strategy">Strategy</a></li>
+						<li><a href="#content">Content</a></li>
+						<li><a href="#performance">Performance</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="about">About</a></li>
+						<li><a href="work">Work</a></li>
+						<li><a href="plans">Plans</a></li>
+						<li><a href="insights">Insights</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; 2026 MVK Studios. All rights reserved.</p>
+				<div class="footer-legal">
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms of Service</a>
+					<a href="#">Contact</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
