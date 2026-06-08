@@ -75,10 +75,7 @@ function lockScreen(error) {
     body::after{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(30,15,200,0.14) 0%,transparent 70%);bottom:-20%;left:-12%;pointer-events:none}
     .grid{position:absolute;inset:0;background-image:repeating-linear-gradient(-55deg,transparent 0 56px,rgba(255,255,255,0.02) 56px 57px);pointer-events:none}
     .card{position:relative;z-index:2;width:100%;max-width:420px;text-align:center}
-    .bars{display:flex;gap:5px;align-items:flex-end;justify-content:center;margin-bottom:28px}
-    .bars span{display:block;width:4px;border-radius:2px}
-    .bars .f{height:24px;background:#6ee7b7}.bars .o{height:32px;background:#f87171}.bars .t{height:40px;background:#60a5fa}.bars .m{height:30px;background:#fbbf24}
-    .mark{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:10px}
+    .logo{height:54px;width:auto;margin:0 auto 22px;display:block}
     .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:36px}
     h1{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;line-height:0.95;text-transform:uppercase;color:#fff;margin-bottom:14px}
     h1 .dim{color:rgba(255,255,255,0.32)}
@@ -96,8 +93,7 @@ function lockScreen(error) {
 <body>
   <div class="grid"></div>
   <div class="card">
-    <div class="bars"><span class="f"></span><span class="o"></span><span class="t"></span><span class="m"></span></div>
-    <div class="mark">MVK Studios</div>
+    <img class="logo" src="/brand/Logo-WT.png" alt="MVK Studios" />
     <div class="eyebrow">Strategy, Systems &amp; AI Operating Teams</div>
     <h1>Launching<br><span class="dim">Soon.</span></h1>
     <p class="lead">This site is in private preview ahead of launch. Enter the access password to continue.</p>
