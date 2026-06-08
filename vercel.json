@@ -1,4 +1,19 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/0-index" },
+    { "source": "/about", "destination": "/1-about" },
+    { "source": "/blueprint", "destination": "/1-blueprint" },
+    { "source": "/contact", "destination": "/1-contact" },
+    { "source": "/services", "destination": "/1-services" },
+    { "source": "/services-finance", "destination": "/2-services-finance" },
+    { "source": "/services-operations", "destination": "/2-services-operations" },
+    { "source": "/services-technology", "destination": "/2-services-technology" },
+    { "source": "/privacy", "destination": "/9-privacy" },
+    { "source": "/terms", "destination": "/9-terms" },
+    { "source": "/cookies", "destination": "/9-cookies" },
+    { "source": "/sitemap", "destination": "/9-sitemap" },
+    { "source": "/thank-you", "destination": "/9-thank-you" }
+  ]
 }
