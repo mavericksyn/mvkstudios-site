@@ -1,0 +1,7 @@
+{
+  "name": "mvkstudios-site",
+  "private": true,
+  "dependencies": {
+    "@vercel/edge": "^1.2.2"
+  }
+}
