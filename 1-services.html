@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | MVK Studios</title>
-  <meta name="description" content="Strategy, systems, automation and AI operating team services for founder-led service businesses." />
+  <meta name="description" content="MVK Studios builds the systems behind founder-led service businesses across three pillars: Technology and AI operating teams, Operations and systems, and Finance and decision visibility." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -34,7 +34,6 @@
       --r:       8px;
       --r2:      16px;
     }
-    /* scroll-behavior removed — Lenis manages all scroll easing */
     body { font-family:var(--font-b); background:var(--bg); color:var(--off); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
     a { text-decoration:none; color:inherit; }
     img { display:block; max-width:100%; }
@@ -58,6 +57,7 @@
     .nav-links > li { display:flex; align-items:center; }
     .nav-link { display:flex; align-items:center; font-family:var(--font-d); font-size:1rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(235,235,235,0.6); padding:0 18px; height:100%; transition:color 0.15s,background 0.15s; white-space:nowrap; }
     .nav-link:hover { color:var(--white); background:rgba(255,255,255,0.04); }
+    .nav-link.active { color:var(--white); }
     /* Mega */
     .has-mega { position:relative; }
     .mega-menu { position:fixed; top:var(--nav-h); left:50%; background:rgba(8,8,18,0.98); backdrop-filter:blur(28px); border:1px solid var(--border2); border-radius:0 0 var(--r2) var(--r2); padding:44px 40px 36px; opacity:0; pointer-events:none; transform:translateX(-50%) translateY(-6px); transition:opacity 0.22s,transform 0.22s; z-index:99; width:min(960px,calc(100vw - 64px)); box-shadow:0 24px 64px rgba(0,0,0,0.5); }
@@ -92,40 +92,40 @@
     .mob-label { font-family:var(--font-d); font-size:0.65rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; }
     .mob-link { display:block; font-size:1rem; color:rgba(235,235,235,0.7); padding:9px 0; border-bottom:1px solid var(--border); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height:100vh;
-      min-height:100svh;
-      display:flex; align-items:center;
-      padding-top:var(--nav-h);
+    /* ── SECTION BASE ── */
+    .section { padding:clamp(80px,10vw,140px) 0; }
+    .section-dark { background:var(--bg2); position:relative; overflow:hidden; }
+    .s-label { font-family:var(--font-d); font-size:0.7rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(235,235,235,0.4); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .s-label::before { content:''; display:block; width:20px; height:1px; background:var(--orange); box-shadow:0 0 6px var(--orange); }
+    .s-title { font-family:var(--font-d); font-size:clamp(2.6rem,4.5vw,4rem); font-weight:900; line-height:0.95; text-transform:uppercase; color:var(--white); }
+    .s-title .dim { color:rgba(255,255,255,0.3); }
+    .s-sub { font-size:1rem; font-weight:300; color:var(--muted); max-width:420px; line-height:1.7; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
       position:relative;
       overflow:hidden;
+      padding:calc(var(--nav-h) + clamp(60px,9vw,120px)) 0 clamp(60px,8vw,100px);
     }
-    /* Atmospheric glows — shift with cursor via --glow-x / --glow-y */
-    .hero::before {
+    .page-hero::before {
       content:'';
       position:absolute;
       width:clamp(600px,60vw,1000px); height:clamp(600px,60vw,1000px);
       border-radius:50%;
-      background:radial-gradient(circle, rgba(30,15,200,0.32) 0%, transparent 68%);
-      top:-15%; right:-8%;
+      background:radial-gradient(circle, rgba(238,68,35,0.16) 0%, transparent 68%);
+      top:-25%; right:-12%;
       pointer-events:none;
-      transform:translate(calc(var(--glow-x,0px) * 1.2), calc(var(--glow-y,0px) * 1.2));
-      transition:transform 1.4s cubic-bezier(0.16,1,0.3,1);
     }
-    .hero::after {
+    .page-hero::after {
       content:'';
       position:absolute;
-      width:clamp(400px,40vw,700px); height:clamp(400px,40vw,700px);
+      width:clamp(500px,50vw,820px); height:clamp(500px,50vw,820px);
       border-radius:50%;
-      background:radial-gradient(circle, rgba(30,15,200,0.16) 0%, transparent 70%);
-      bottom:-10%; left:-8%;
+      background:radial-gradient(circle, rgba(30,15,200,0.20) 0%, transparent 70%);
+      bottom:-30%; left:-12%;
       pointer-events:none;
-      transform:translate(calc(var(--glow-x,0px) * -.7), calc(var(--glow-y,0px) * -.7));
-      transition:transform 1.4s cubic-bezier(0.16,1,0.3,1);
     }
-    /* Diagonal texture — more distinct than perpendicular AI grids */
-    .hero-grid {
+    .page-hero-grid {
       position:absolute; inset:0;
       background-image:repeating-linear-gradient(
         -55deg,
@@ -134,246 +134,69 @@
       );
       pointer-events:none;
     }
+    .page-hero-inner { position:relative; z-index:2; max-width:840px; }
+    .ph-eyebrow { font-family:var(--font-d); font-size:0.72rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(235,235,235,0.5); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+    .ph-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--orange); box-shadow:0 0 6px var(--orange); }
+    .ph-headline { font-family:var(--font-d); font-size:clamp(2.8rem,6vw,5.4rem); font-weight:900; line-height:0.93; letter-spacing:-0.01em; text-transform:uppercase; color:var(--white); margin-bottom:24px; }
+    .ph-headline .accent { color:var(--orange); text-shadow:0 0 28px rgba(238,68,35,0.42); }
+    .ph-sub { font-size:clamp(0.95rem,1.6vw,1.08rem); font-weight:300; color:var(--muted); line-height:1.72; max-width:600px; margin-bottom:34px; }
+    .ph-actions { display:flex; gap:14px; flex-wrap:wrap; }
 
-    .hero-content {
+    /* ── PILLAR CARDS ── */
+    .pillars-head { margin-bottom:56px; max-width:620px; }
+    .pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .scard {
       position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:1fr 420px;
-      gap:clamp(40px,5vw,72px);
-      align-items:center;
-      padding:clamp(16px,3vh,56px) 0;
-      width:100%;
-    }
-
-    /* ── Four-bar kicker — brand-specific, replaces generic dot eyebrow ── */
-    .hero-kicker {
-      display:flex; align-items:center; gap:14px;
-      margin-bottom:clamp(12px,2vh,22px);
-      opacity:0;
-      animation:fade-up .5s ease forwards .1s;
-    }
-    .kicker-bars { display:flex; gap:4px; align-items:flex-end; flex-shrink:0; }
-    .kb {
-      display:block; width:3px; border-radius:2px;
-      opacity:0; transform:scaleY(0); transform-origin:bottom center;
-      animation:bar-grow .45s cubic-bezier(0.34,1.56,0.64,1) forwards;
-    }
-    .kb.f { height:22px; background:#6ee7b7; animation-delay:.28s; }
-    .kb.o { height:28px; background:#f87171; animation-delay:.38s; }
-    .kb.t { height:34px; background:#60a5fa; animation-delay:.48s; }
-    .kb.m { height:26px; background:#fbbf24; animation-delay:.58s; }
-    .kicker-text {
-      font-family:var(--font-d);
-      font-size:0.72rem; font-weight:700;
-      letter-spacing:0.22em; text-transform:uppercase;
-      color:rgba(235,235,235,0.42);
-    }
-
-    /* ── Masked line-reveal for headline ── */
-    .hl-wrap { display:block; overflow:hidden; padding-bottom:.05em; }
-    .hl-wrap .hl {
-      display:block;
-      transform:translateY(105%);
-      animation:line-rise .9s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay:var(--d,.2s);
-    }
-
-    .hero-headline {
-      font-family:var(--font-d);
-      font-size:clamp(2.6rem,5.6vw,5.8rem);
-      font-weight:900;
-      line-height:0.93;
-      letter-spacing:-0.01em;
-      text-transform:uppercase;
-      color:var(--white);
-      margin-bottom:clamp(14px,2vh,24px);
-    }
-    /* Animated shimmer on accent line */
-    .hero-headline .accent {
-      color:#7b7cf7;
-      text-shadow:0 0 28px rgba(30,15,200,0.36);
-      animation:line-rise .9s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay:var(--d,.2s);
-    }
-
-    .hero-sub {
-      font-size:clamp(0.9rem,1.6vw,1.02rem); font-weight:300;
-      color:var(--muted);
-      line-height:1.72;
-      max-width:500px;
-      margin-bottom:clamp(22px,3vh,36px);
-      opacity:0;
-      animation:fade-up .7s ease forwards .82s;
-    }
-
-    .hero-actions {
-      display:flex; gap:14px; flex-wrap:wrap;
-      opacity:0;
-      animation:fade-up .6s ease forwards .96s;
-    }
-
-    /* Pillar tags */
-    .hero-tags {
-      display:flex; gap:8px; flex-wrap:wrap;
-      margin-top:clamp(22px,3vh,40px);
-      padding-top:clamp(16px,2.5vh,32px);
-      border-top:1px solid var(--border);
-      opacity:0;
-      animation:fade-up .6s ease forwards 1.08s;
-    }
-    .htag {
-      font-family:var(--font-d);
-      font-size:0.7rem; font-weight:700;
-      letter-spacing:0.12em; text-transform:uppercase;
-      padding:5px 14px; border-radius:100px;
-      border:1px solid;
-    }
-    .htag.f { color:#6ee7b7; border-color:rgba(110,231,183,0.25); background:rgba(110,231,183,0.06); }
-    .htag.o { color:#f87171; border-color:rgba(248,113,113,0.25); background:rgba(248,113,113,0.06); }
-    .htag.t { color:#60a5fa; border-color:rgba(96,165,250,0.25);  background:rgba(96,165,250,0.06); }
-    .htag.m { color:#fbbf24; border-color:rgba(251,191,36,0.25);  background:rgba(251,191,36,0.06); }
-
-    /* Hero right — stat cards slide in from the right */
-    .hero-right { display:flex; flex-direction:column; gap:10px; }
-    .stat-card {
       background:var(--glass);
       border:1px solid var(--border);
       border-radius:var(--r2);
-      padding:clamp(16px,2vh,24px) 24px;
+      padding:34px 30px;
       backdrop-filter:blur(10px);
-      transition:border-color .2s, background .2s, transform .25s;
-      opacity:0;
-      animation:card-in .7s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay:var(--d,.5s);
-    }
-    .stat-card:hover { border-color:var(--border2); background:var(--glass2); transform:translateX(-4px); }
-    .stat-card.featured {
-      background:rgba(30,15,200,0.12);
-      border-color:rgba(30,15,200,0.4);
-    }
-    .stat-card.featured:hover { border-color:rgba(30,15,200,0.58); }
-    .stat-num { font-family:var(--font-d); font-size:clamp(2rem,3vh,2.8rem); font-weight:900; color:var(--white); line-height:1; margin-bottom:4px; }
-    .stat-label { font-size:0.84rem; color:var(--muted); }
-
-    /* ── Keyframes ── */
-    @keyframes line-rise {
-      to { transform:translateY(0); }
-    }
-    @keyframes bar-grow {
-      from { opacity:0; transform:scaleY(0); }
-      to   { opacity:1; transform:scaleY(1); }
-    }
-    @keyframes fade-up {
-      from { opacity:0; transform:translateY(18px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-    @keyframes card-in {
-      from { opacity:0; transform:translateX(22px); }
-      to   { opacity:1; transform:translateX(0); }
-    }
-    @keyframes shimmer {
-      0%   { background-position:100% 0; }
-      100% { background-position:-200% 0; }
-    }
-
-    /* ── SECTION BASE ── */
-    .section { padding:clamp(80px,10vw,140px) 0; }
-    .section-dark { background:var(--bg2); position:relative; overflow:hidden; }
-    .s-label { font-family:var(--font-d); font-size:0.7rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(235,235,235,0.4); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
-    .s-label::before { content:''; display:block; width:20px; height:1px; background:var(--blue); box-shadow:0 0 6px var(--blue); }
-    .s-title { font-family:var(--font-d); font-size:clamp(2.6rem,4.5vw,4rem); font-weight:900; line-height:0.95; text-transform:uppercase; color:var(--white); }
-    .s-title .dim { color:rgba(255,255,255,0.3); }
-    .s-sub { font-size:1rem; font-weight:300; color:var(--muted); max-width:420px; line-height:1.7; }
-
-    /* ── PILLARS — staggered glass cards ── */
-    .pillars-intro { display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:64px; flex-wrap:wrap; }
-    .pillars-stagger {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      align-items:start;
-    }
-    .pillars-stagger .pc:nth-child(2) { margin-top:32px; }
-    .pillars-stagger .pc:nth-child(3) { margin-top:16px; }
-    .pillars-stagger .pc:nth-child(4) { margin-top:48px; }
-
-    .pc {
-      background:var(--glass);
-      border:1px solid var(--border);
-      border-radius:var(--r2);
-      padding:28px 24px;
-      backdrop-filter:blur(10px);
-      transition:transform 0.25s, border-color 0.25s, background 0.25s;
       display:flex; flex-direction:column;
+      transition:transform 0.25s, border-color 0.25s, background 0.25s;
     }
-    .pc:hover { transform:translateY(-6px); background:var(--glass2); }
-    .pc.f:hover { border-color:rgba(110,231,183,0.35); }
-    .pc.o:hover { border-color:rgba(251,191,36,0.35); }
-    .pc.t:hover { border-color:rgba(96,165,250,0.35); }
-    .pc.m:hover { border-color:rgba(248,113,113,0.35); }
+    .scard::before { content:''; display:block; height:3px; width:64px; border-radius:3px; margin-bottom:26px; }
+    .scard.tech::before { background:linear-gradient(90deg,#60a5fa,transparent); }
+    .scard.ops::before  { background:linear-gradient(90deg,#f87171,transparent); }
+    .scard.fin::before  { background:linear-gradient(90deg,#6ee7b7,transparent); }
+    .scard:hover { transform:translateY(-8px); background:var(--glass2); }
+    .scard.tech:hover { border-color:rgba(96,165,250,0.38); }
+    .scard.ops:hover  { border-color:rgba(248,113,113,0.38); }
+    .scard.fin:hover  { border-color:rgba(110,231,183,0.38); }
 
-    /* Top accent line */
-    .pc::before { content:''; display:block; height:2px; border-radius:2px; margin-bottom:24px; }
-    .pc.f::before { background:linear-gradient(90deg,#6ee7b7,transparent); }
-    .pc.o::before { background:linear-gradient(90deg,#f87171,transparent); }
-    .pc.t::before { background:linear-gradient(90deg,#60a5fa,transparent); }
-    .pc.m::before { background:linear-gradient(90deg,#fbbf24,transparent); }
+    .scard-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+    .scard-num { font-family:var(--font-d); font-size:2.4rem; font-weight:900; line-height:1; }
+    .scard-icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:var(--font-d); font-weight:900; font-size:1.1rem; letter-spacing:0.04em; }
+    .scard.tech .scard-icon { background:rgba(96,165,250,0.12); color:#60a5fa; }
+    .scard.ops  .scard-icon { background:rgba(248,113,113,0.12); color:#f87171; }
+    .scard.fin  .scard-icon { background:rgba(110,231,183,0.12); color:#6ee7b7; }
+    .scard.tech .scard-num { color:rgba(96,165,250,0.20); }
+    .scard.ops  .scard-num { color:rgba(248,113,113,0.20); }
+    .scard.fin  .scard-num { color:rgba(110,231,183,0.20); }
 
-    .pc-icon { font-size:1.4rem; margin-bottom:16px; }
-    .pc-name { font-family:var(--font-d); font-size:1.3rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:10px; letter-spacing:0.03em; }
-    .pc-desc { font-size:0.84rem; color:var(--muted); line-height:1.65; margin-bottom:20px; flex:1; }
-    .pc-list { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:24px; }
-    .pc-list li { font-size:0.8rem; color:rgba(235,235,235,0.45); padding-left:12px; position:relative; }
-    .pc-list li::before { content:'-'; position:absolute; left:0; font-size:0.7rem; color:rgba(235,235,235,0.25); }
-    .pc-link { font-family:var(--font-d); font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; transition:gap 0.15s; }
-    .pc.f .pc-link { color:#6ee7b7; }
-    .pc.o .pc-link { color:#f87171; }
-    .pc.t .pc-link { color:#60a5fa; }
-    .pc.m .pc-link { color:#fbbf24; }
-    .pc-link:hover { gap:10px; }
+    .scard-name { font-family:var(--font-d); font-size:1.4rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:12px; letter-spacing:0.02em; line-height:1.05; }
+    .scard-desc { font-size:0.88rem; color:var(--muted); line-height:1.68; margin-bottom:24px; }
+    .scard-list { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:28px; flex:1; }
+    .scard-list li { font-size:0.84rem; color:rgba(235,235,235,0.58); padding-left:18px; position:relative; line-height:1.5; }
+    .scard-list li::before { content:''; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; }
+    .scard.tech .scard-list li::before { background:#60a5fa; }
+    .scard.ops  .scard-list li::before { background:#f87171; }
+    .scard.fin  .scard-list li::before { background:#6ee7b7; }
+    .scard-link { font-family:var(--font-d); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; display:inline-flex; align-items:center; gap:7px; transition:gap 0.15s; }
+    .scard.tech .scard-link { color:#60a5fa; }
+    .scard.ops  .scard-link { color:#f87171; }
+    .scard.fin  .scard-link { color:#6ee7b7; }
+    .scard-link:hover { gap:12px; }
 
-    /* ── STATS STRIP ── */
-    .stats-strip { padding:72px 0; background:var(--bg); position:relative; overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .stats-strip::before {
-      content:'';
-      position:absolute; inset:0;
-      background:radial-gradient(ellipse 60% 120% at 50% 50%, rgba(30,15,200,0.12) 0%, transparent 70%);
-      pointer-events:none;
-    }
-    .stats-inner { position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-    .stat-item { text-align:center; padding:0 32px; border-right:1px solid var(--border); }
-    .stat-item:last-child { border-right:none; }
-    .stat-big { font-family:var(--font-d); font-size:3.4rem; font-weight:900; color:var(--white); line-height:1; margin-bottom:6px; }
-    .stat-desc { font-size:0.84rem; color:var(--muted); line-height:1.45; }
-
-    /* ── WHO WE SERVE ── */
-    .tiers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
-    .tier {
-      border:1px solid var(--border);
-      border-radius:var(--r2);
-      padding:36px 30px;
-      position:relative;
-      background:var(--glass);
-      transition:border-color 0.2s, background 0.2s;
-    }
-    .tier:hover { background:var(--glass2); border-color:var(--border2); }
-    .tier.featured { border-color:rgba(30,15,200,0.4); background:rgba(30,15,200,0.08); }
-    .tier.featured:hover { border-color:rgba(30,15,200,0.6); }
-    .tier-badge { font-family:var(--font-d); font-size:0.62rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; background:var(--blue); color:var(--white); padding:4px 10px; border-radius:3px; position:absolute; top:20px; right:20px; }
-    .tier-name { font-family:var(--font-d); font-size:1.7rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:6px; }
-    .tier-revenue { font-family:var(--font-d); font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:8px; }
-    .tier-ideal { font-size:0.83rem; color:var(--muted); margin-bottom:24px; }
-    .tier-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
-    .tier-list li { font-size:0.86rem; color:rgba(235,235,235,0.6); display:flex; align-items:flex-start; gap:10px; }
-    .tier-list li::before { content:'✓'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
-
-    /* ── PROCESS ── */
-    .process-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r2); overflow:hidden; margin-top:56px; }
+    /* ── HOW WE WORK ── */
+    .process-head { margin-bottom:20px; }
+    .process-note { font-size:0.92rem; font-weight:300; color:var(--muted); max-width:560px; line-height:1.7; margin-bottom:48px; }
+    .process-note b { color:var(--orange); font-weight:600; }
+    .process-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r2); overflow:hidden; }
     .process-step { background:var(--bg); padding:40px 32px; transition:background 0.2s; }
     .process-step:hover { background:var(--bg2); }
     .step-num { font-family:var(--font-d); font-size:3rem; font-weight:900; color:rgba(255,255,255,0.06); line-height:1; margin-bottom:16px; }
-    .process-step:first-child .step-num { color:rgba(30,15,200,0.6); }
+    .process-step:first-child .step-num { color:rgba(238,68,35,0.55); }
     .step-name { font-family:var(--font-d); font-size:1.1rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:10px; letter-spacing:0.04em; }
     .step-desc { font-size:0.84rem; color:var(--muted); line-height:1.65; }
 
@@ -402,6 +225,7 @@
     }
     .cta-inner { position:relative; z-index:1; }
     .cta-headline { font-family:var(--font-d); font-size:clamp(3rem,5.5vw,5rem); font-weight:900; text-transform:uppercase; color:var(--white); line-height:0.95; margin-bottom:20px; }
+    .cta-headline .accent { color:var(--orange); text-shadow:0 0 28px rgba(238,68,35,0.42); }
     .cta-sub { font-size:1rem; font-weight:300; color:var(--muted); max-width:480px; margin:0 auto 40px; line-height:1.7; }
     .cta-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 
@@ -422,30 +246,14 @@
     .flegal a:hover { color:rgba(235,235,235,0.7); }
 
     /* ── RESPONSIVE ── */
-
-    /* Narrow the right stat column before it starts feeling cramped */
-    @media (max-width:1200px) {
-      .hero-content { grid-template-columns:1fr 360px; }
-    }
-
     @media (max-width:1024px) {
-      /* Collapse hero to single column on tablets */
-      .hero-content { grid-template-columns:1fr; gap:40px; }
-      .hero-right { display:none; }
-      .pillars-stagger { grid-template-columns:repeat(2,1fr); }
-      .pillars-stagger .pc:nth-child(2),
-      .pillars-stagger .pc:nth-child(3),
-      .pillars-stagger .pc:nth-child(4) { margin-top:0; }
-      .stats-inner { grid-template-columns:1fr 1fr; gap:32px; }
-      .stat-item { border-right:none; padding:0; text-align:left; }
-      .tiers-grid { grid-template-columns:1fr; max-width:480px; margin-inline:auto; }
+      .pillars-grid { grid-template-columns:1fr; max-width:520px; }
       .process-row { grid-template-columns:1fr 1fr; }
       .footer-nav { grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:768px) {
       .nav-links, .nav-cta { display:none; }
       .nav-toggle { display:flex; }
-      .pillars-stagger { grid-template-columns:1fr; }
       .process-row { grid-template-columns:1fr; }
       .footer-top { grid-template-columns:1fr; gap:48px; }
       .footer-nav { grid-template-columns:1fr 1fr; }
@@ -513,7 +321,7 @@
             </div>
           </div>
         </li>
-        <li role="none"><a href="services" class="nav-link">Services</a></li>
+        <li role="none"><a href="services" class="nav-link active">Services</a></li>
         <li role="none"><a href="services-technology" class="nav-link">AI Teams</a></li>
         <li role="none"><a href="about" class="nav-link">About</a></li>
         <li role="none"><a href="contact" class="nav-link">Contact</a></li>
@@ -536,102 +344,130 @@
     <div style="margin-top:28px;"><a href="blueprint" class="btn btn-primary" style="width:100%;justify-content:center;">Start with the Blueprint</a></div>
   </div>
 
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-grid"></div>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
     <div class="container">
-      <div class="hero-content">
-        <div>
-          <div class="hero-kicker"><div class="kicker-bars"><span class="kb f"></span><span class="kb o"></span><span class="kb t"></span><span class="kb m"></span></div><span class="kicker-text">MVK Studios Services</span></div>
-          <h1 class="hero-headline">
-            <span class="hl-wrap"><span class="hl " style="--d:.22s">Strategy,</span></span>
-            <span class="hl-wrap"><span class="hl accent" style="--d:.4s">Systems and</span></span>
-            <span class="hl-wrap"><span class="hl " style="--d:.56s">AI Operating</span></span>
-            <span class="hl-wrap"><span class="hl " style="--d:.7s">Teams.</span></span>
-          </h1>
-          <p class="hero-sub">Start with the Blueprint, then build the systems, automations and AI support your business actually needs.</p>
-          <div class="hero-actions"><a href="blueprint" class="btn btn-primary">Start with the Blueprint</a><a href="contact" class="btn btn-ghost">Book a Strategy Call</a></div>
-          <div class="hero-tags">
-            <span class="htag f">Tech Stack</span>
-            <span class="htag o">Operations</span>
-            <span class="htag t">Finance</span>
-            <span class="htag m">AI Teams</span>
-          </div>
-        </div>
-        <div class="hero-right">
-          <div class="stat-card featured" style="--d:.54s"><div class="stat-num" data-count="1">0</div><div class="stat-label">Strategy-first roadmap before tools or automation</div></div>
-          <div class="stat-card" style="--d:.7s"><div class="stat-num" data-count="3">0</div><div class="stat-label">Core pillars: tech stack, operations and finance</div></div>
-          <div class="stat-card" style="--d:.86s"><div class="stat-num" data-count="5" data-suffix="-50">0</div><div class="stat-label">Staff service businesses this is designed for</div></div>
+      <div class="page-hero-inner">
+        <p class="ph-eyebrow">Services</p>
+        <h1 class="ph-headline">Systems That Run <span class="accent">Without You.</span></h1>
+        <p class="ph-sub">MVK Studios helps founder-led service businesses get their house in order across three pillars: Tech Stack, Operations and Finance. We map how the business actually runs, then build the systems that take the load off the founder.</p>
+        <div class="ph-actions">
+          <a href="blueprint" class="btn btn-primary">Start with the Blueprint</a>
+          <a href="contact" class="btn btn-ghost">Book a Strategy Call</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PILLAR CARDS -->
   <section class="section section-dark">
     <div class="container">
-      <div class="pillars-intro"><div><p class="s-label">Services</p><h2 class="s-title">The Work<br><span class="dim">We Build</span></h2></div><p class="s-sub">Everything starts with clarity. We diagnose the operating system behind the business, then implement the highest leverage fixes across tools, workflows, finance visibility and AI support.</p></div>
-      <div class="pillars-stagger">
-        <div class="pc f">
-          <div class="pc-icon">01</div>
-          <div class="pc-name">Strategy & Systems Blueprint</div>
-          <p class="pc-desc">A focused diagnosis of the business model, bottlenecks, tools, workflows and growth constraints before anything gets built.</p>
-          <ul class="pc-list">
-            <li>Business systems map</li>
-            <li>Bottleneck diagnosis</li>
-            <li>Priority roadmap</li>
-            <li>Implementation sequence</li>
-          </ul>
-          <a href="blueprint" class="pc-link">Explore the Blueprint &rarr;</a>
-        </div>
-        <div class="pc o">
-          <div class="pc-icon">02</div>
-          <div class="pc-name">AI Operating Teams</div>
-          <p class="pc-desc">Role-based AI support designed around recurring decisions, admin load, internal knowledge and founder bottlenecks.</p>
-          <ul class="pc-list">
-            <li>Internal knowledge agents</li>
-            <li>Reporting assistants</li>
-            <li>Workflow copilots</li>
-            <li>Founder support systems</li>
-          </ul>
-          <a href="services-technology" class="pc-link">AI Team Systems &rarr;</a>
-        </div>
-        <div class="pc t">
-          <div class="pc-icon">03</div>
-          <div class="pc-name">Operations & Tech Stack</div>
-          <p class="pc-desc">Process design, SOPs, automation and connected tools that help the business run without everything living in the founder's head.</p>
-          <ul class="pc-list">
-            <li>Workflow design</li>
-            <li>CRM and tool integration</li>
+      <div class="pillars-head">
+        <p class="s-label">Three Pillars</p>
+        <h2 class="s-title">Where We <span class="dim">Build</span></h2>
+      </div>
+      <div class="pillars-grid">
+
+        <div class="scard tech">
+          <div class="scard-top">
+            <span class="scard-num">01</span>
+            <span class="scard-icon">AI</span>
+          </div>
+          <h3 class="scard-name">Technology &amp; AI Operating Teams</h3>
+          <p class="scard-desc">The connected tools, automations and role-based AI support that let the business operate without everything routing through the founder.</p>
+          <ul class="scard-list">
+            <li>Tech stack audit and integration</li>
             <li>Automation architecture</li>
+            <li>Role-based AI operating teams</li>
+            <li>Internal knowledge assistants</li>
+          </ul>
+          <a href="services-technology" class="scard-link">Explore &rarr;</a>
+        </div>
+
+        <div class="scard ops">
+          <div class="scard-top">
+            <span class="scard-num">02</span>
+            <span class="scard-icon">OS</span>
+          </div>
+          <h3 class="scard-name">Operations &amp; Systems</h3>
+          <p class="scard-desc">The workflows, SOPs and clear ownership that turn how work moves through the team into a system instead of tribal knowledge.</p>
+          <ul class="scard-list">
+            <li>Workflow and SOP design</li>
+            <li>CRM and tool integration</li>
+            <li>Delegation and handoff mapping</li>
             <li>Client delivery visibility</li>
           </ul>
-          <a href="services-operations" class="pc-link">Operations Systems &rarr;</a>
+          <a href="services-operations" class="scard-link">Explore &rarr;</a>
         </div>
-        <div class="pc m">
-          <div class="pc-icon">04</div>
-          <div class="pc-name">Finance & Decision Visibility</div>
-          <p class="pc-desc">Cleaner visibility across money, capacity and performance so founders can make better decisions without chasing scattered reports.</p>
-          <ul class="pc-list">
+
+        <div class="scard fin">
+          <div class="scard-top">
+            <span class="scard-num">03</span>
+            <span class="scard-icon">$</span>
+          </div>
+          <h3 class="scard-name">Finance &amp; Decision Visibility</h3>
+          <p class="scard-desc">Cleaner visibility across money, capacity and performance so founders can make better decisions without chasing scattered reports.</p>
+          <ul class="scard-list">
             <li>Management reporting</li>
             <li>Forecasting and modelling</li>
             <li>Dashboard visibility</li>
             <li>Operating cadence</li>
           </ul>
-          <a href="services-finance" class="pc-link">Finance Systems &rarr;</a>
+          <a href="services-finance" class="scard-link">Explore &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section">
+    <div class="container">
+      <div class="process-head">
+        <p class="s-label">How We Work</p>
+        <h2 class="s-title">From Bottleneck<br><span class="dim">to Operating System</span></h2>
+      </div>
+      <p class="process-note">Every engagement starts with the <b>Blueprint</b>, a focused diagnosis before any tool, hire or automation. From there we move through four stages built to embed, not just deliver.</p>
+      <div class="process-row">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div class="step-name">Diagnose</div>
+          <p class="step-desc">We map your business model, customer journey, tools, team workflows and the bottlenecks limiting leverage.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div class="step-name">Design</div>
+          <p class="step-desc">We create the roadmap for what to fix, automate, delegate or rebuild first, sequenced by impact.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div class="step-name">Build</div>
+          <p class="step-desc">We implement the workflows, integrations, dashboards and AI-powered support that hold the system together.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div class="step-name">Embed</div>
+          <p class="step-desc">We refine the system with your team so it becomes part of how the business actually runs day to day.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section ">
-    <div class="container">
-      <p class="s-label">Service Flow</p><h2 class="s-title">Diagnose<br><span class="dim">Design, Build and Embed</span></h2>
-      <div class="process-row"><div class="process-step"><div class="step-num">01</div><div class="step-name">Diagnose</div><p class="step-desc">Map the current state across workflows, tools, finance visibility and team bottlenecks.</p></div><div class="process-step"><div class="step-num">02</div><div class="step-name">Design</div><p class="step-desc">Create the operating roadmap and decide what to fix, automate, delegate or rebuild first.</p></div><div class="process-step"><div class="step-num">03</div><div class="step-name">Build</div><p class="step-desc">Implement systems, dashboards, workflows and AI support around the approved sequence.</p></div><div class="process-step"><div class="step-num">04</div><div class="step-name">Embed</div><p class="step-desc">Help the team adopt the system so it becomes part of how the business runs.</p></div></div>
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="container">
+        <h2 class="cta-headline">Start with<br>the <span class="accent">Blueprint.</span></h2>
+        <p class="cta-sub">Before tools, hiring or automation, the Strategy and Systems Blueprint gives you clarity on what to fix, automate, delegate or rebuild next across all three pillars.</p>
+        <div class="cta-actions">
+          <a href="blueprint" class="btn btn-primary">Start with the Blueprint</a>
+          <a href="contact" class="btn btn-ghost">Book a Strategy Call</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="cta-section"><div class="cta-inner"><div class="container"><h2 class="cta-headline">Start With<br>the Blueprint.</h2><p class="cta-sub">The fastest way to avoid random tools and scattered automation is to map the operating system first.</p><div class="cta-actions"><a href="blueprint" class="btn btn-primary">Start with the Blueprint</a><a href="contact" class="btn btn-ghost">Book a Strategy Call</a></div></div></div></section>
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -708,50 +544,6 @@
       mobileNav.setAttribute('aria-hidden', !open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-
-    /* ── Hero glow parallax ── */
-    const hero = document.getElementById('hero');
-    if (hero && window.matchMedia('(pointer:fine)').matches) {
-      hero.addEventListener('mousemove', (e) => {
-        const r = hero.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width  - 0.5) * 44;
-        const y = ((e.clientY - r.top)  / r.height - 0.5) * 32;
-        hero.style.setProperty('--glow-x', x + 'px');
-        hero.style.setProperty('--glow-y', y + 'px');
-      });
-      hero.addEventListener('mouseleave', () => {
-        hero.style.setProperty('--glow-x', '0px');
-        hero.style.setProperty('--glow-y', '0px');
-      });
-    }
-
-    /* ── Stat counter ── */
-    function countUp(el, target, suffix, duration) {
-      const start = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(ease * target) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      })(start);
-    }
-
-    const counters = document.querySelectorAll('.stat-num[data-count]');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el     = entry.target;
-        const target = +el.dataset.count;
-        const suffix = el.dataset.suffix || '';
-        /* start slightly after the card slides in */
-        const cardDelay = parseFloat(
-          el.closest('.stat-card').style.getPropertyValue('--d') || '0.5'
-        ) * 1000 + 150;
-        setTimeout(() => countUp(el, target, suffix, 1200), cardDelay);
-        io.unobserve(el);
-      });
-    }, { threshold: 0.4 });
-    counters.forEach(c => io.observe(c));
   </script>
 </body>
 </html>

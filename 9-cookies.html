@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cookie Policy | MVK Studios</title>
-  <meta name="description" content="Cookie Policy for MVK Studios." />
+  <title>MVK Studios | Cookie Policy</title>
+  <meta name="description" content="Cookie Policy for MVK Studios. What cookies are, how we use them and how to manage your preferences." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -34,7 +34,6 @@
       --r:       8px;
       --r2:      16px;
     }
-    /* scroll-behavior removed — Lenis manages all scroll easing */
     body { font-family:var(--font-b); background:var(--bg); color:var(--off); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
     a { text-decoration:none; color:inherit; }
     img { display:block; max-width:100%; }
@@ -92,318 +91,94 @@
     .mob-label { font-family:var(--font-d); font-size:0.65rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; }
     .mob-link { display:block; font-size:1rem; color:rgba(235,235,235,0.7); padding:9px 0; border-bottom:1px solid var(--border); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height:100vh;
-      min-height:100svh;
-      display:flex; align-items:center;
-      padding-top:var(--nav-h);
+    /* ── LEGAL: PAGE HEADER BAND ── */
+    .legal-head {
+      padding-top:calc(var(--nav-h) + clamp(48px,7vw,90px));
+      padding-bottom:clamp(36px,5vw,60px);
+      border-bottom:1px solid var(--border);
       position:relative;
       overflow:hidden;
     }
-    /* Atmospheric glows — shift with cursor via --glow-x / --glow-y */
-    .hero::before {
+    .legal-head::before {
       content:'';
       position:absolute;
-      width:clamp(600px,60vw,1000px); height:clamp(600px,60vw,1000px);
+      width:clamp(400px,45vw,720px); height:clamp(400px,45vw,720px);
       border-radius:50%;
-      background:radial-gradient(circle, rgba(30,15,200,0.32) 0%, transparent 68%);
-      top:-15%; right:-8%;
-      pointer-events:none;
-      transform:translate(calc(var(--glow-x,0px) * 1.2), calc(var(--glow-y,0px) * 1.2));
-      transition:transform 1.4s cubic-bezier(0.16,1,0.3,1);
-    }
-    .hero::after {
-      content:'';
-      position:absolute;
-      width:clamp(400px,40vw,700px); height:clamp(400px,40vw,700px);
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(30,15,200,0.16) 0%, transparent 70%);
-      bottom:-10%; left:-8%;
-      pointer-events:none;
-      transform:translate(calc(var(--glow-x,0px) * -.7), calc(var(--glow-y,0px) * -.7));
-      transition:transform 1.4s cubic-bezier(0.16,1,0.3,1);
-    }
-    /* Diagonal texture — more distinct than perpendicular AI grids */
-    .hero-grid {
-      position:absolute; inset:0;
-      background-image:repeating-linear-gradient(
-        -55deg,
-        transparent 0px, transparent 56px,
-        rgba(255,255,255,0.022) 56px, rgba(255,255,255,0.022) 57px
-      );
+      background:radial-gradient(circle, rgba(238,68,35,0.10) 0%, transparent 68%);
+      top:-40%; right:-6%;
       pointer-events:none;
     }
-
-    .hero-content {
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:1fr 420px;
-      gap:clamp(40px,5vw,72px);
-      align-items:center;
-      padding:clamp(16px,3vh,56px) 0;
-      width:100%;
-    }
-
-    /* ── Four-bar kicker — brand-specific, replaces generic dot eyebrow ── */
-    .hero-kicker {
-      display:flex; align-items:center; gap:14px;
-      margin-bottom:clamp(12px,2vh,22px);
-      opacity:0;
-      animation:fade-up .5s ease forwards .1s;
-    }
-    .kicker-bars { display:flex; gap:4px; align-items:flex-end; flex-shrink:0; }
-    .kb {
-      display:block; width:3px; border-radius:2px;
-      opacity:0; transform:scaleY(0); transform-origin:bottom center;
-      animation:bar-grow .45s cubic-bezier(0.34,1.56,0.64,1) forwards;
-    }
-    .kb.f { height:22px; background:#6ee7b7; animation-delay:.28s; }
-    .kb.o { height:28px; background:#f87171; animation-delay:.38s; }
-    .kb.t { height:34px; background:#60a5fa; animation-delay:.48s; }
-    .kb.m { height:26px; background:#fbbf24; animation-delay:.58s; }
-    .kicker-text {
-      font-family:var(--font-d);
-      font-size:0.72rem; font-weight:700;
+    .legal-eyebrow {
+      font-family:var(--font-d); font-size:0.72rem; font-weight:700;
       letter-spacing:0.22em; text-transform:uppercase;
-      color:rgba(235,235,235,0.42);
+      color:var(--orange); margin-bottom:16px;
+      display:flex; align-items:center; gap:10px;
     }
-
-    /* ── Masked line-reveal for headline ── */
-    .hl-wrap { display:block; overflow:hidden; padding-bottom:.05em; }
-    .hl-wrap .hl {
-      display:block;
-      transform:translateY(105%);
-      animation:line-rise .9s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay:var(--d,.2s);
-    }
-
-    .hero-headline {
+    .legal-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--orange); box-shadow:0 0 8px rgba(238,68,35,0.5); }
+    .legal-title {
       font-family:var(--font-d);
-      font-size:clamp(2.6rem,5.6vw,5.8rem);
-      font-weight:900;
-      line-height:0.93;
-      letter-spacing:-0.01em;
-      text-transform:uppercase;
-      color:var(--white);
-      margin-bottom:clamp(14px,2vh,24px);
+      font-size:clamp(2.6rem,5vw,4.4rem); font-weight:900;
+      line-height:0.95; letter-spacing:-0.01em;
+      text-transform:uppercase; color:var(--white);
+      margin-bottom:18px;
     }
-    /* Animated shimmer on accent line */
-    .hero-headline .accent {
-      color:#7b7cf7;
-      text-shadow:0 0 28px rgba(30,15,200,0.36);
-      animation:line-rise .9s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay:var(--d,.2s);
-    }
+    .legal-updated { font-size:0.82rem; color:var(--muted); margin-bottom:14px; font-weight:500; }
+    .legal-updated strong { color:var(--off); font-weight:600; }
+    .legal-intro { font-size:1rem; font-weight:300; color:var(--mid); max-width:640px; line-height:1.75; }
 
-    .hero-sub {
-      font-size:clamp(0.9rem,1.6vw,1.02rem); font-weight:300;
-      color:var(--muted);
-      line-height:1.72;
-      max-width:500px;
-      margin-bottom:clamp(22px,3vh,36px);
-      opacity:0;
-      animation:fade-up .7s ease forwards .82s;
-    }
+    /* ── LEGAL: BODY GRID ── */
+    .legal-body { padding:clamp(48px,6vw,80px) 0 clamp(64px,8vw,110px); }
+    .legal-grid { display:grid; grid-template-columns:248px 1fr; gap:clamp(40px,6vw,88px); align-items:start; }
 
-    .hero-actions {
-      display:flex; gap:14px; flex-wrap:wrap;
-      opacity:0;
-      animation:fade-up .6s ease forwards .96s;
+    /* TOC sidebar */
+    .legal-toc { position:sticky; top:calc(var(--nav-h) + 28px); }
+    .toc-label { font-family:var(--font-d); font-size:0.65rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:rgba(235,235,235,0.4); margin-bottom:18px; }
+    .toc-list { list-style:none; display:flex; flex-direction:column; gap:2px; }
+    .toc-link {
+      display:flex; align-items:baseline; gap:12px;
+      font-size:0.86rem; color:var(--muted);
+      padding:8px 12px; border-radius:var(--r);
+      border-left:2px solid transparent;
+      transition:color 0.15s, background 0.15s, border-color 0.15s;
+      line-height:1.4;
     }
+    .toc-link .toc-num { font-family:var(--font-d); font-size:0.78rem; font-weight:700; color:rgba(235,235,235,0.35); flex-shrink:0; letter-spacing:0.04em; transition:color 0.15s; }
+    .toc-link:hover { color:var(--white); background:var(--glass); }
+    .toc-link.active { color:var(--white); background:rgba(238,68,35,0.07); border-left-color:var(--orange); }
+    .toc-link.active .toc-num { color:var(--orange); }
 
-    /* Pillar tags */
-    .hero-tags {
-      display:flex; gap:8px; flex-wrap:wrap;
-      margin-top:clamp(22px,3vh,40px);
-      padding-top:clamp(16px,2.5vh,32px);
-      border-top:1px solid var(--border);
-      opacity:0;
-      animation:fade-up .6s ease forwards 1.08s;
+    /* Reading column */
+    .legal-prose { max-width:720px; }
+    .legal-section { margin-bottom:clamp(40px,5vw,60px); scroll-margin-top:calc(var(--nav-h) + 24px); }
+    .legal-section:last-of-type { margin-bottom:0; }
+    .legal-section h2 {
+      font-family:var(--font-d); font-size:clamp(1.5rem,2.6vw,2rem); font-weight:800;
+      text-transform:uppercase; color:var(--white); line-height:1.05;
+      letter-spacing:0.01em; margin-bottom:20px;
+      display:flex; align-items:baseline; gap:14px;
     }
-    .htag {
-      font-family:var(--font-d);
-      font-size:0.7rem; font-weight:700;
+    .legal-section h2 .sec-num { font-family:var(--font-d); font-size:0.9rem; font-weight:800; color:var(--orange); letter-spacing:0.06em; flex-shrink:0; }
+    .legal-section h3 {
+      font-family:var(--font-d); font-size:1.08rem; font-weight:700;
+      text-transform:uppercase; color:var(--off); letter-spacing:0.04em;
+      margin:28px 0 12px;
+    }
+    .legal-section p { font-size:0.95rem; color:var(--mid); line-height:1.8; margin-bottom:16px; font-weight:300; }
+    .legal-section p:last-child { margin-bottom:0; }
+    .legal-section ul { list-style:none; margin:4px 0 16px; display:flex; flex-direction:column; gap:9px; }
+    .legal-section ul li { font-size:0.95rem; color:var(--muted); line-height:1.7; padding-left:20px; position:relative; font-weight:300; }
+    .legal-section ul li::before { content:''; position:absolute; left:2px; top:0.65em; width:6px; height:6px; border-radius:2px; background:var(--orange); opacity:0.7; }
+    .legal-section a.inline-link { color:var(--off); border-bottom:1px solid rgba(238,68,35,0.4); transition:color 0.15s, border-color 0.15s; }
+    .legal-section a.inline-link:hover { color:var(--orange); border-bottom-color:var(--orange); }
+
+    .legal-divider { height:1px; background:var(--border); margin:clamp(40px,5vw,60px) 0; }
+    .back-top {
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:var(--font-d); font-size:0.74rem; font-weight:700;
       letter-spacing:0.12em; text-transform:uppercase;
-      padding:5px 14px; border-radius:100px;
-      border:1px solid;
+      color:var(--muted); transition:color 0.15s, gap 0.15s;
     }
-    .htag.f { color:#6ee7b7; border-color:rgba(110,231,183,0.25); background:rgba(110,231,183,0.06); }
-    .htag.o { color:#f87171; border-color:rgba(248,113,113,0.25); background:rgba(248,113,113,0.06); }
-    .htag.t { color:#60a5fa; border-color:rgba(96,165,250,0.25);  background:rgba(96,165,250,0.06); }
-    .htag.m { color:#fbbf24; border-color:rgba(251,191,36,0.25);  background:rgba(251,191,36,0.06); }
-
-    /* Hero right — stat cards slide in from the right */
-    .hero-right { display:flex; flex-direction:column; gap:10px; }
-    .stat-card {
-      background:var(--glass);
-      border:1px solid var(--border);
-      border-radius:var(--r2);
-      padding:clamp(16px,2vh,24px) 24px;
-      backdrop-filter:blur(10px);
-      transition:border-color .2s, background .2s, transform .25s;
-      opacity:0;
-      animation:card-in .7s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay:var(--d,.5s);
-    }
-    .stat-card:hover { border-color:var(--border2); background:var(--glass2); transform:translateX(-4px); }
-    .stat-card.featured {
-      background:rgba(30,15,200,0.12);
-      border-color:rgba(30,15,200,0.4);
-    }
-    .stat-card.featured:hover { border-color:rgba(30,15,200,0.58); }
-    .stat-num { font-family:var(--font-d); font-size:clamp(2rem,3vh,2.8rem); font-weight:900; color:var(--white); line-height:1; margin-bottom:4px; }
-    .stat-label { font-size:0.84rem; color:var(--muted); }
-
-    /* ── Keyframes ── */
-    @keyframes line-rise {
-      to { transform:translateY(0); }
-    }
-    @keyframes bar-grow {
-      from { opacity:0; transform:scaleY(0); }
-      to   { opacity:1; transform:scaleY(1); }
-    }
-    @keyframes fade-up {
-      from { opacity:0; transform:translateY(18px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-    @keyframes card-in {
-      from { opacity:0; transform:translateX(22px); }
-      to   { opacity:1; transform:translateX(0); }
-    }
-    @keyframes shimmer {
-      0%   { background-position:100% 0; }
-      100% { background-position:-200% 0; }
-    }
-
-    /* ── SECTION BASE ── */
-    .section { padding:clamp(80px,10vw,140px) 0; }
-    .section-dark { background:var(--bg2); position:relative; overflow:hidden; }
-    .s-label { font-family:var(--font-d); font-size:0.7rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(235,235,235,0.4); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
-    .s-label::before { content:''; display:block; width:20px; height:1px; background:var(--blue); box-shadow:0 0 6px var(--blue); }
-    .s-title { font-family:var(--font-d); font-size:clamp(2.6rem,4.5vw,4rem); font-weight:900; line-height:0.95; text-transform:uppercase; color:var(--white); }
-    .s-title .dim { color:rgba(255,255,255,0.3); }
-    .s-sub { font-size:1rem; font-weight:300; color:var(--muted); max-width:420px; line-height:1.7; }
-
-    /* ── PILLARS — staggered glass cards ── */
-    .pillars-intro { display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:64px; flex-wrap:wrap; }
-    .pillars-stagger {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      align-items:start;
-    }
-    .pillars-stagger .pc:nth-child(2) { margin-top:32px; }
-    .pillars-stagger .pc:nth-child(3) { margin-top:16px; }
-    .pillars-stagger .pc:nth-child(4) { margin-top:48px; }
-
-    .pc {
-      background:var(--glass);
-      border:1px solid var(--border);
-      border-radius:var(--r2);
-      padding:28px 24px;
-      backdrop-filter:blur(10px);
-      transition:transform 0.25s, border-color 0.25s, background 0.25s;
-      display:flex; flex-direction:column;
-    }
-    .pc:hover { transform:translateY(-6px); background:var(--glass2); }
-    .pc.f:hover { border-color:rgba(110,231,183,0.35); }
-    .pc.o:hover { border-color:rgba(251,191,36,0.35); }
-    .pc.t:hover { border-color:rgba(96,165,250,0.35); }
-    .pc.m:hover { border-color:rgba(248,113,113,0.35); }
-
-    /* Top accent line */
-    .pc::before { content:''; display:block; height:2px; border-radius:2px; margin-bottom:24px; }
-    .pc.f::before { background:linear-gradient(90deg,#6ee7b7,transparent); }
-    .pc.o::before { background:linear-gradient(90deg,#f87171,transparent); }
-    .pc.t::before { background:linear-gradient(90deg,#60a5fa,transparent); }
-    .pc.m::before { background:linear-gradient(90deg,#fbbf24,transparent); }
-
-    .pc-icon { font-size:1.4rem; margin-bottom:16px; }
-    .pc-name { font-family:var(--font-d); font-size:1.3rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:10px; letter-spacing:0.03em; }
-    .pc-desc { font-size:0.84rem; color:var(--muted); line-height:1.65; margin-bottom:20px; flex:1; }
-    .pc-list { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:24px; }
-    .pc-list li { font-size:0.8rem; color:rgba(235,235,235,0.45); padding-left:12px; position:relative; }
-    .pc-list li::before { content:'-'; position:absolute; left:0; font-size:0.7rem; color:rgba(235,235,235,0.25); }
-    .pc-link { font-family:var(--font-d); font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; transition:gap 0.15s; }
-    .pc.f .pc-link { color:#6ee7b7; }
-    .pc.o .pc-link { color:#f87171; }
-    .pc.t .pc-link { color:#60a5fa; }
-    .pc.m .pc-link { color:#fbbf24; }
-    .pc-link:hover { gap:10px; }
-
-    /* ── STATS STRIP ── */
-    .stats-strip { padding:72px 0; background:var(--bg); position:relative; overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .stats-strip::before {
-      content:'';
-      position:absolute; inset:0;
-      background:radial-gradient(ellipse 60% 120% at 50% 50%, rgba(30,15,200,0.12) 0%, transparent 70%);
-      pointer-events:none;
-    }
-    .stats-inner { position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-    .stat-item { text-align:center; padding:0 32px; border-right:1px solid var(--border); }
-    .stat-item:last-child { border-right:none; }
-    .stat-big { font-family:var(--font-d); font-size:3.4rem; font-weight:900; color:var(--white); line-height:1; margin-bottom:6px; }
-    .stat-desc { font-size:0.84rem; color:var(--muted); line-height:1.45; }
-
-    /* ── WHO WE SERVE ── */
-    .tiers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
-    .tier {
-      border:1px solid var(--border);
-      border-radius:var(--r2);
-      padding:36px 30px;
-      position:relative;
-      background:var(--glass);
-      transition:border-color 0.2s, background 0.2s;
-    }
-    .tier:hover { background:var(--glass2); border-color:var(--border2); }
-    .tier.featured { border-color:rgba(30,15,200,0.4); background:rgba(30,15,200,0.08); }
-    .tier.featured:hover { border-color:rgba(30,15,200,0.6); }
-    .tier-badge { font-family:var(--font-d); font-size:0.62rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; background:var(--blue); color:var(--white); padding:4px 10px; border-radius:3px; position:absolute; top:20px; right:20px; }
-    .tier-name { font-family:var(--font-d); font-size:1.7rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:6px; }
-    .tier-revenue { font-family:var(--font-d); font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:8px; }
-    .tier-ideal { font-size:0.83rem; color:var(--muted); margin-bottom:24px; }
-    .tier-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
-    .tier-list li { font-size:0.86rem; color:rgba(235,235,235,0.6); display:flex; align-items:flex-start; gap:10px; }
-    .tier-list li::before { content:'✓'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
-
-    /* ── PROCESS ── */
-    .process-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--r2); overflow:hidden; margin-top:56px; }
-    .process-step { background:var(--bg); padding:40px 32px; transition:background 0.2s; }
-    .process-step:hover { background:var(--bg2); }
-    .step-num { font-family:var(--font-d); font-size:3rem; font-weight:900; color:rgba(255,255,255,0.06); line-height:1; margin-bottom:16px; }
-    .process-step:first-child .step-num { color:rgba(30,15,200,0.6); }
-    .step-name { font-family:var(--font-d); font-size:1.1rem; font-weight:900; text-transform:uppercase; color:var(--white); margin-bottom:10px; letter-spacing:0.04em; }
-    .step-desc { font-size:0.84rem; color:var(--muted); line-height:1.65; }
-
-    /* ── CTA ── */
-    .cta-section {
-      padding:clamp(80px,10vw,140px) 0;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .cta-section::before {
-      content:'';
-      position:absolute; inset:0;
-      background:radial-gradient(ellipse 70% 120% at 50% 50%, rgba(30,15,200,0.2) 0%, transparent 70%);
-      pointer-events:none;
-    }
-    .cta-section::after {
-      content:'';
-      position:absolute;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size:60px 60px;
-      pointer-events:none;
-    }
-    .cta-inner { position:relative; z-index:1; }
-    .cta-headline { font-family:var(--font-d); font-size:clamp(3rem,5.5vw,5rem); font-weight:900; text-transform:uppercase; color:var(--white); line-height:0.95; margin-bottom:20px; }
-    .cta-sub { font-size:1rem; font-weight:300; color:var(--muted); max-width:480px; margin:0 auto 40px; line-height:1.7; }
-    .cta-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .back-top:hover { color:var(--orange); gap:12px; }
 
     /* ── FOOTER ── */
     .footer { background:#020208; padding:72px 0 32px; border-top:1px solid var(--border); }
@@ -422,31 +197,17 @@
     .flegal a:hover { color:rgba(235,235,235,0.7); }
 
     /* ── RESPONSIVE ── */
-
-    /* Narrow the right stat column before it starts feeling cramped */
-    @media (max-width:1200px) {
-      .hero-content { grid-template-columns:1fr 360px; }
-    }
-
-    @media (max-width:1024px) {
-      /* Collapse hero to single column on tablets */
-      .hero-content { grid-template-columns:1fr; gap:40px; }
-      .hero-right { display:none; }
-      .pillars-stagger { grid-template-columns:repeat(2,1fr); }
-      .pillars-stagger .pc:nth-child(2),
-      .pillars-stagger .pc:nth-child(3),
-      .pillars-stagger .pc:nth-child(4) { margin-top:0; }
-      .stats-inner { grid-template-columns:1fr 1fr; gap:32px; }
-      .stat-item { border-right:none; padding:0; text-align:left; }
-      .tiers-grid { grid-template-columns:1fr; max-width:480px; margin-inline:auto; }
-      .process-row { grid-template-columns:1fr 1fr; }
-      .footer-nav { grid-template-columns:repeat(2,1fr); }
+    @media (max-width:900px) {
+      .legal-grid { grid-template-columns:1fr; gap:32px; }
+      .legal-toc { position:static; top:auto; padding-bottom:20px; border-bottom:1px solid var(--border); }
+      .toc-list { flex-direction:row; flex-wrap:nowrap; overflow-x:auto; gap:8px; padding-bottom:6px; -webkit-overflow-scrolling:touch; }
+      .toc-link { white-space:nowrap; border-left:none; border-bottom:2px solid transparent; border-radius:100px; padding:8px 14px; background:var(--glass); }
+      .toc-link.active { border-left:none; border-bottom-color:transparent; }
+      .legal-prose { max-width:100%; }
     }
     @media (max-width:768px) {
       .nav-links, .nav-cta { display:none; }
       .nav-toggle { display:flex; }
-      .pillars-stagger { grid-template-columns:1fr; }
-      .process-row { grid-template-columns:1fr; }
       .footer-top { grid-template-columns:1fr; gap:48px; }
       .footer-nav { grid-template-columns:1fr 1fr; }
     }
@@ -536,40 +297,103 @@
     <div style="margin-top:28px;"><a href="blueprint" class="btn btn-primary" style="width:100%;justify-content:center;">Start with the Blueprint</a></div>
   </div>
 
+  <!-- LEGAL HEADER -->
+  <header class="legal-head" id="top">
+    <div class="container">
+      <p class="legal-eyebrow">Legal</p>
+      <h1 class="legal-title">Cookie Policy</h1>
+      <p class="legal-updated">Last updated: <strong>1 June 2026</strong></p>
+      <p class="legal-intro">This policy explains what cookies are, how MVK Studios uses them across our website and how you can manage your preferences at any time.</p>
+    </div>
+  </header>
 
-  <!-- HERO -->
-  <section class="hero" id="hero"><div class="hero-grid"></div><div class="container"><div class="hero-content"><div>
-    <div class="hero-kicker"><div class="kicker-bars"><span class="kb f"></span><span class="kb o"></span><span class="kb t"></span><span class="kb m"></span></div><span class="kicker-text">Legal</span></div>
-    <h1 class="hero-headline">
-            <span class="hl-wrap"><span class="hl " style="--d:.22s">Cookie</span></span>
-            <span class="hl-wrap"><span class="hl accent" style="--d:.4s">Policy</span></span>
-            <span class="hl-wrap"><span class="hl " style="--d:.56s">MVK</span></span>
-            <span class="hl-wrap"><span class="hl " style="--d:.7s">Studios</span></span>
-    </h1>
-    <p class="hero-sub">Cookie Policy for MVK Studios. This page should be reviewed by a qualified professional before being treated as legal advice.</p><div class="hero-actions"><a href="blueprint" class="btn btn-primary">Start with the Blueprint</a><a href="contact" class="btn btn-ghost">Book a Strategy Call</a></div>
-    <div class="hero-tags"><span class="htag f">Tech Stack</span><span class="htag o">Operations</span><span class="htag t">Finance</span><span class="htag m">AI Teams</span></div>
-    </div><div class="hero-right"><div class="stat-card featured" style="--d:.54s"><div class="stat-num" data-count="1">0</div><div class="stat-label">Current MVK pathway starts with the Blueprint</div></div><div class="stat-card" style="--d:.7s"><div class="stat-num" data-count="3">0</div><div class="stat-label">Core pillars: tech stack, operations and finance</div></div><div class="stat-card" style="--d:.86s"><div class="stat-num" data-count="5" data-suffix="-50">0</div><div class="stat-label">Staff service businesses this is designed for</div></div></div></div></div></section>
-<section class="section section-dark"><div class="container"><div class="pillars-intro"><div><p class="s-label">Cookie Policy</p><h2 class="s-title">Website<br><span class="dim">Policy Notes</span></h2></div><p class="s-sub">This page is kept in the current site structure so footer links resolve correctly.</p></div><div class="pillars-stagger"><div class="pc f"><div class="pc-icon">01</div><div class="pc-name">Business Context</div><p class="pc-desc">MVK Studios is a founder-led systems and consulting business based in Australia.</p><ul class="pc-list">
-            <li>Tech stack</li>
-            <li>Operations</li>
-            <li>Finance visibility</li>
-            <li>AI support</li>
-          </ul><a href="/" class="pc-link">Home &rarr;</a></div><div class="pc o"><div class="pc-icon">02</div><div class="pc-name">Contact</div><p class="pc-desc">Questions about this policy can be sent to the MVK Studios business email.</p><ul class="pc-list">
-            <li>hello@mvkstudios.com.au</li>
-            <li>Website enquiry</li>
-            <li>Business contact details</li>
-            <li>Response when available</li>
-          </ul><a href="contact" class="pc-link">Contact &rarr;</a></div><div class="pc t"><div class="pc-icon">03</div><div class="pc-name">Website Use</div><p class="pc-desc">Use of the website should follow reasonable, lawful and non-abusive behaviour.</p><ul class="pc-list">
-            <li>No misuse</li>
-            <li>No unauthorised access</li>
-            <li>Respect intellectual property</li>
-            <li>Contact for questions</li>
-          </ul><a href="terms" class="pc-link">Terms &rarr;</a></div><div class="pc m"><div class="pc-icon">04</div><div class="pc-name">Privacy Reminder</div><p class="pc-desc">Do not submit sensitive information through website forms unless necessary.</p><ul class="pc-list">
-            <li>Business enquiries only</li>
-            <li>Limit personal details</li>
-            <li>Use email if needed</li>
-            <li>Request deletion if required</li>
-          </ul><a href="privacy" class="pc-link">Privacy &rarr;</a></div></div></div></section><section class="cta-section"><div class="cta-inner"><div class="container"><h2 class="cta-headline">Need to<br>Contact MVK?</h2><p class="cta-sub">Use the contact page or email hello@mvkstudios.com.au for website and business enquiries.</p><div class="cta-actions"><a href="contact" class="btn btn-primary">Contact MVK</a><a href="contact" class="btn btn-ghost">Book a Strategy Call</a></div></div></div></section>  <!-- FOOTER -->
+  <!-- LEGAL BODY -->
+  <div class="legal-body">
+    <div class="container">
+      <div class="legal-grid">
+
+        <!-- TOC -->
+        <aside class="legal-toc" aria-label="Table of contents">
+          <p class="toc-label">On this page</p>
+          <ul class="toc-list">
+            <li><a class="toc-link" href="#what"><span class="toc-num">01</span> What Are Cookies</a></li>
+            <li><a class="toc-link" href="#how"><span class="toc-num">02</span> How We Use Cookies</a></li>
+            <li><a class="toc-link" href="#types"><span class="toc-num">03</span> Types of Cookies We Use</a></li>
+            <li><a class="toc-link" href="#third-party"><span class="toc-num">04</span> Third-Party Cookies</a></li>
+            <li><a class="toc-link" href="#manage"><span class="toc-num">05</span> Managing Your Preferences</a></li>
+            <li><a class="toc-link" href="#changes"><span class="toc-num">06</span> Changes to This Policy</a></li>
+            <li><a class="toc-link" href="#contact"><span class="toc-num">07</span> Contact</a></li>
+          </ul>
+        </aside>
+
+        <!-- PROSE -->
+        <main class="legal-prose">
+
+          <section class="legal-section" id="what">
+            <h2><span class="sec-num">01</span> What Are Cookies</h2>
+            <p>Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work, to remember your preferences and to provide information to the site owner about how the site is used.</p>
+            <p>Cookies can be session-based, which are deleted when you close your browser, or persistent, which remain on your device until they expire or you remove them. Some are set by the website you are visiting, while others are set by third parties.</p>
+          </section>
+
+          <section class="legal-section" id="how">
+            <h2><span class="sec-num">02</span> How We Use Cookies</h2>
+            <p>We use cookies to keep our website running smoothly, to understand how visitors interact with our content and to improve the overall experience.</p>
+            <ul>
+              <li>To enable core functionality and keep the website secure</li>
+              <li>To remember your preferences and settings between visits</li>
+              <li>To measure traffic and understand which content is most useful</li>
+            </ul>
+            <p>We do not use cookies to collect more information than is necessary, and we do not sell any data gathered through cookies.</p>
+          </section>
+
+          <section class="legal-section" id="types">
+            <h2><span class="sec-num">03</span> Types of Cookies We Use</h2>
+            <h3>Essential cookies</h3>
+            <p>These are necessary for the website to function and cannot be switched off in our systems. They are usually set in response to actions you take, such as navigating pages or completing a form.</p>
+            <h3>Performance and analytics cookies</h3>
+            <p>These help us understand how visitors use our website by collecting information anonymously. This allows us to measure and improve the performance of our content.</p>
+            <h3>Preference cookies</h3>
+            <p>These allow the website to remember choices you make, such as settings and preferences, to provide a more personalised experience.</p>
+          </section>
+
+          <section class="legal-section" id="third-party">
+            <h2><span class="sec-num">04</span> Third-Party Cookies</h2>
+            <p>Some cookies on our website may be set by third-party services that appear on our pages, such as analytics providers. These third parties may use cookies to collect information about your activity across different websites.</p>
+            <p>We do not control these third-party cookies. We recommend reviewing the privacy and cookie policies of any third-party services for detail on how they handle your information.</p>
+          </section>
+
+          <section class="legal-section" id="manage">
+            <h2><span class="sec-num">05</span> Managing Your Preferences</h2>
+            <p>You can control and manage cookies in several ways. Most browsers allow you to refuse or delete cookies through their settings menu.</p>
+            <ul>
+              <li>Adjust your browser settings to block or delete cookies</li>
+              <li>Set your browser to notify you when a cookie is being placed</li>
+              <li>Use private or incognito browsing to limit persistent cookies</li>
+            </ul>
+            <p>Please note that disabling certain cookies may affect the functionality of our website and limit some features.</p>
+          </section>
+
+          <section class="legal-section" id="changes">
+            <h2><span class="sec-num">06</span> Changes to This Policy</h2>
+            <p>We may update this Cookie Policy from time to time to reflect changes in technology, our practices or legal requirements. Any updates will be published on this page with a revised last updated date.</p>
+            <p>We encourage you to review this policy periodically so you stay informed about how we use cookies.</p>
+          </section>
+
+          <section class="legal-section" id="contact">
+            <h2><span class="sec-num">07</span> Contact</h2>
+            <p>If you have questions about this Cookie Policy or how we use cookies, please get in touch.</p>
+            <p>Email us at <a class="inline-link" href="mailto:hello@mvkstudios.com.au">hello@mvkstudios.com.au</a> or call <a class="inline-link" href="tel:+61415380648">0415 380 648</a>. You can also read our <a class="inline-link" href="privacy">Privacy Policy</a> and <a class="inline-link" href="terms">Terms of Service</a> for more detail.</p>
+          </section>
+
+          <div class="legal-divider"></div>
+          <a class="back-top" href="#top">&uarr; Back to top</a>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -630,7 +454,7 @@
         duration: 1.5,
         easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        syncTouch: false,   // keep native feel on trackpad/touch
+        syncTouch: false,
       });
       function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
       requestAnimationFrame(raf);
@@ -646,49 +470,18 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
 
-    /* ── Hero glow parallax ── */
-    const hero = document.getElementById('hero');
-    if (hero && window.matchMedia('(pointer:fine)').matches) {
-      hero.addEventListener('mousemove', (e) => {
-        const r = hero.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width  - 0.5) * 44;
-        const y = ((e.clientY - r.top)  / r.height - 0.5) * 32;
-        hero.style.setProperty('--glow-x', x + 'px');
-        hero.style.setProperty('--glow-y', y + 'px');
-      });
-      hero.addEventListener('mouseleave', () => {
-        hero.style.setProperty('--glow-x', '0px');
-        hero.style.setProperty('--glow-y', '0px');
-      });
-    }
-
-    /* ── Stat counter ── */
-    function countUp(el, target, suffix, duration) {
-      const start = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(ease * target) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      })(start);
-    }
-
-    const counters = document.querySelectorAll('.stat-num[data-count]');
-    const io = new IntersectionObserver((entries) => {
+    /* ── TOC scroll-spy ── */
+    const sections = document.querySelectorAll('.legal-section');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const spy = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el     = entry.target;
-        const target = +el.dataset.count;
-        const suffix = el.dataset.suffix || '';
-        /* start slightly after the card slides in */
-        const cardDelay = parseFloat(
-          el.closest('.stat-card').style.getPropertyValue('--d') || '0.5'
-        ) * 1000 + 150;
-        setTimeout(() => countUp(el, target, suffix, 1200), cardDelay);
-        io.unobserve(el);
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+        }
       });
-    }, { threshold: 0.4 });
-    counters.forEach(c => io.observe(c));
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+    sections.forEach(s => spy.observe(s));
   </script>
 </body>
 </html>
